@@ -27,10 +27,13 @@ input{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;border-rad
 .summary{font-weight:700;margin-top:8px}
 </style>
 </head>
+
 <body>
 <div class="app">
 <div class="card">
+
 <h1>🇸🇦 SAR — مولّد تقارير الركاب</h1>
+
 <div class="tabs">
 <button id="tab1" class="tab active" onclick="showSingle()">تقرير رحلة</button>
 <button id="tab2" class="tab" onclick="showMulti()">تقرير المحطات</button>
@@ -38,78 +41,221 @@ input{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;border-rad
 
 <div id="single">
 <div class="grid">
-<label>التاريخ<input id="s_date" placeholder="08/08/2026"></label>
-<label>رقم الرحلة<input id="s_train" placeholder="39"></label>
-<label>من<input id="s_from" value="Majmaah"></label>
-<label>إلى<input id="s_to" value="Riyadh"></label>
-<label class="full">وقت المغادرة<input id="s_time" placeholder="22:30"></label>
-<label>Business<input id="s_b" type="number" min="0" value="0"></label>
-<label>Economy<input id="s_e" type="number" min="0" value="0"></label>
-<label>Waiting<input id="s_w" type="number" min="0" value="0"></label>
-<label>Baggage<input id="s_g" type="number" min="0" value="0"></label>
+
+<label>التاريخ
+<input id="s_date" placeholder="08/08/2026">
+</label>
+
+<label>رقم الرحلة
+<input id="s_train" placeholder="39">
+</label>
+
+<label>من
+<input id="s_from" value="Majmaah">
+</label>
+
+<label>إلى
+<input id="s_to" value="Riyadh">
+</label>
+
+<label class="full">وقت المغادرة
+<input id="s_time" placeholder="22:30">
+</label>
+
+<label>Business
+<input id="s_b" type="number" min="0" value="0">
+</label>
+
+<label>Economy
+<input id="s_e" type="number" min="0" value="0">
+</label>
+
+<label>Waiting
+<input id="s_w" type="number" min="0" value="0">
+</label>
+
+<label>Baggage
+<input id="s_g" type="number" min="0" value="0">
+</label>
+
+<label>Shipment
+<input id="s_s" type="number" min="0" value="0">
+</label>
+
 </div>
 </div>
+
 
 <div id="multi" class="hidden">
+
 <div class="grid">
-<label>التاريخ<input id="m_date" placeholder="11/08/2026"></label>
-<label>رقم الرحلة<input id="m_train" placeholder="39"></label>
-<label class="full">وقت المغادرة<input id="m_time" placeholder="18:00"></label>
+
+<label>التاريخ
+<input id="m_date" placeholder="11/08/2026">
+</label>
+
+<label>رقم الرحلة
+<input id="m_train" placeholder="39">
+</label>
+
+<label class="full">وقت المغادرة
+<input id="m_time" placeholder="18:00">
+</label>
+
 </div>
 
+
 <div class="station">
+
 <div class="station-title">📍 Qassim</div>
+
 <div class="grid">
-<label>Business<input id="q_b" type="number" min="0" value="0"></label>
-<label>Economy<input id="q_e" type="number" min="0" value="0"></label>
-<label>Waiting<input id="q_w" type="number" min="0" value="0"></label>
-<label>Baggage<input id="q_g" type="number" min="0" value="0"></label>
+
+<label>Business
+<input id="q_b" type="number" min="0" value="0">
+</label>
+
+<label>Economy
+<input id="q_e" type="number" min="0" value="0">
+</label>
+
+<label>Waiting
+<input id="q_w" type="number" min="0" value="0">
+</label>
+
+<label>Baggage
+<input id="q_g" type="number" min="0" value="0">
+</label>
+
+<label>Shipment
+<input id="q_s" type="number" min="0" value="0">
+</label>
+
 </div>
 </div>
 
+
 <div class="station">
+
 <div class="station-title">📍 Hail</div>
+
 <div class="grid">
-<label>Business<input id="h_b" type="number" min="0" value="0"></label>
-<label>Economy<input id="h_e" type="number" min="0" value="0"></label>
-<label>Waiting<input id="h_w" type="number" min="0" value="0"></label>
-<label>Baggage<input id="h_g" type="number" min="0" value="0"></label>
+
+<label>Business
+<input id="h_b" type="number" min="0" value="0">
+</label>
+
+<label>Economy
+<input id="h_e" type="number" min="0" value="0">
+</label>
+
+<label>Waiting
+<input id="h_w" type="number" min="0" value="0">
+</label>
+
+<label>Baggage
+<input id="h_g" type="number" min="0" value="0">
+</label>
+
+<label>Shipment
+<input id="h_s" type="number" min="0" value="0">
+</label>
+
 </div>
 </div>
 
+
 <div class="station">
+
 <div class="station-title">📍 Al Jouf</div>
+
 <div class="grid">
-<label>Business<input id="j_b" type="number" min="0" value="0"></label>
-<label>Economy<input id="j_e" type="number" min="0" value="0"></label>
-<label>Waiting<input id="j_w" type="number" min="0" value="0"></label>
-<label>Baggage<input id="j_g" type="number" min="0" value="0"></label>
+
+<label>Business
+<input id="j_b" type="number" min="0" value="0">
+</label>
+
+<label>Economy
+<input id="j_e" type="number" min="0" value="0">
+</label>
+
+<label>Waiting
+<input id="j_w" type="number" min="0" value="0">
+</label>
+
+<label>Baggage
+<input id="j_g" type="number" min="0" value="0">
+</label>
+
+<label>Shipment
+<input id="j_s" type="number" min="0" value="0">
+</label>
+
 </div>
 </div>
 
+
 <div class="station">
+
 <div class="station-title">📍 Al Qurayyat</div>
+
 <div class="grid">
-<label>Business<input id="c_b" type="number" min="0" value="0"></label>
-<label>Economy<input id="c_e" type="number" min="0" value="0"></label>
-<label>Waiting<input id="c_w" type="number" min="0" value="0"></label>
-<label>Baggage<input id="c_g" type="number" min="0" value="0"></label>
+
+<label>Business
+<input id="c_b" type="number" min="0" value="0">
+</label>
+
+<label>Economy
+<input id="c_e" type="number" min="0" value="0">
+</label>
+
+<label>Waiting
+<input id="c_w" type="number" min="0" value="0">
+</label>
+
+<label>Baggage
+<input id="c_g" type="number" min="0" value="0">
+</label>
+
+<label>Shipment
+<input id="c_s" type="number" min="0" value="0">
+</label>
+
 </div>
 </div>
+
 </div>
+
 
 <h2>📱 النص الجاهز للواتساب</h2>
+
 <textarea id="output" class="output" readonly></textarea>
+
 <button class="copy" onclick="copyReport()">📋 نسخ النص</button>
-<div id="status" class="note">اضغط «نسخ النص» ثم الصق مباشرة في واتساب.</div>
+
+<div id="status" class="note">
+اضغط «نسخ النص» ثم الصق مباشرة في واتساب.
+</div>
+
 </div>
 </div>
 
+
 <script>
-function v(id){return document.getElementById(id).value||""}
-function n(id){return Number(v(id))||0}
+
+function v(id){
+return document.getElementById(id).value||""
+}
+
+function n(id){
+return Number(v(id))||0
+}
+
+
 function singleText(){
+
 let t=n('s_b')+n('s_e')+n('s_w');
+
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
 📋 Departure Report
@@ -127,29 +273,56 @@ Waiting: ${n('s_w')}
 Total: ${t}
 
 🧳 Baggage: ${n('s_g')}
+📦 Shipment: ${n('s_s')}
 
 📝 Note:
 Baggage car is at the front of the train.`;
+
 }
+
+
 function multiText(){
+
 let rows=[
-['Qassim','q_b','q_e','q_w','q_g'],
-['Hail','h_b','h_e','h_w','h_g'],
-['Al Jouf','j_b','j_e','j_w','j_g'],
-['Al Qurayyat','c_b','c_e','c_w','c_g']];
-let total=0,bags=0,body='';
+['Qassim','q_b','q_e','q_w','q_g','q_s'],
+['Hail','h_b','h_e','h_w','h_g','h_s'],
+['Al Jouf','j_b','j_e','j_w','j_g','j_s'],
+['Al Qurayyat','c_b','c_e','c_w','c_g','c_s']
+];
+
+let total=0;
+let bags=0;
+let shipments=0;
+let body='';
+
+
 rows.forEach(r=>{
-let b=n(r[1]),e=n(r[2]),w=n(r[3]),g=n(r[4]),t=b+e+w;
-total+=t;bags+=g;
+
+let b=n(r[1]);
+let e=n(r[2]);
+let w=n(r[3]);
+let g=n(r[4]);
+let s=n(r[5]);
+
+let t=b+e+w;
+
+total+=t;
+bags+=g;
+shipments+=s;
+
 body+=`📍 ${r[0]}
 💺 Business: ${b}
 🪑 Economy: ${e}
 Waiting: ${w}
 🧳 Baggage: ${g}
+📦 Shipment: ${s}
 Total: ${t}
 
 `;
+
 });
+
+
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
 📋 Passenger Destination Report
@@ -162,18 +335,86 @@ ${v('m_date')}
 👥 Passengers by Destination
 
 ${body}👥 Total Passengers: ${total}
-🧳 Total Baggage: ${bags}`;
+🧳 Total Baggage: ${bags}
+📦 Total Shipment: ${shipments}`;
+
 }
-function update(){document.getElementById('output').value=document.getElementById('multi').classList.contains('hidden')?singleText():multiText();}
-function showSingle(){document.getElementById('single').classList.remove('hidden');document.getElementById('multi').classList.add('hidden');document.getElementById('tab1').classList.add('active');document.getElementById('tab2').classList.remove('active');update();}
-function showMulti(){document.getElementById('single').classList.add('hidden');document.getElementById('multi').classList.remove('hidden');document.getElementById('tab1').classList.remove('active');document.getElementById('tab2').classList.add('active');update();}
-async function copyReport(){
-let text=document.getElementById('output').value;
-try{await navigator.clipboard.writeText(text);document.getElementById('status').textContent='✅ تم النسخ كنص. افتح واتساب والصق.';}
-catch(e){let x=document.getElementById('output');x.removeAttribute('readonly');x.focus();x.select();document.execCommand('copy');x.setAttribute('readonly','readonly');document.getElementById('status').textContent='✅ تم النسخ كنص. افتح واتساب والصق.';}
+
+
+function update(){
+
+document.getElementById('output').value=
+document.getElementById('multi').classList.contains('hidden')
+?singleText()
+:multiText();
+
 }
-document.addEventListener('input',update);
+
+
+function showSingle(){
+
+document.getElementById('single').classList.remove('hidden');
+document.getElementById('multi').classList.add('hidden');
+
+document.getElementById('tab1').classList.add('active');
+document.getElementById('tab2').classList.remove('active');
+
 update();
+
+}
+
+
+function showMulti(){
+
+document.getElementById('single').classList.add('hidden');
+document.getElementById('multi').classList.remove('hidden');
+
+document.getElementById('tab1').classList.remove('active');
+document.getElementById('tab2').classList.add('active');
+
+update();
+
+}
+
+
+async function copyReport(){
+
+let text=document.getElementById('output').value;
+
+try{
+
+await navigator.clipboard.writeText(text);
+
+document.getElementById('status').textContent=
+'✅ تم النسخ كنص. افتح واتساب والصق.';
+
+}
+
+catch(e){
+
+let x=document.getElementById('output');
+
+x.removeAttribute('readonly');
+x.focus();
+x.select();
+
+document.execCommand('copy');
+
+x.setAttribute('readonly','readonly');
+
+document.getElementById('status').textContent=
+'✅ تم النسخ كنص. افتح واتساب والصق.';
+
+}
+
+}
+
+
+document.addEventListener('input',update);
+
+update();
+
 </script>
+
 </body>
 </html>
