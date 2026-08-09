@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SAR - تقارير الركاب</title>
-
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:#111}
+body{margin:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#111}
 .app{max-width:650px;margin:auto;padding:14px}
-.card{background:#fff;border-radius:18px;padding:16px;box-shadow:0 2px 12px #00000014}
-h1{text-align:center;font-size:21px;margin:0 0 15px}
+.card{background:white;border-radius:18px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:14px}
+h1{font-size:21px;margin:0 0 15px;text-align:center}
 h2{font-size:17px;margin:16px 0 10px}
 .tabs{display:flex;gap:8px;margin-bottom:14px}
 button{border:0;border-radius:12px;padding:12px;font-size:16px;font-weight:700}
@@ -22,7 +21,7 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 .station{border:1px solid #ddd;border-radius:13px;padding:12px;margin:10px 0}
 .station-title{font-size:16px;font-weight:800;margin-bottom:9px}
 .output{width:100%;min-height:330px;padding:13px;border:1px solid #ccc;border-radius:12px;font-size:15px;line-height:1.55;direction:ltr;text-align:left;white-space:pre-wrap;background:#fafafa}
-.copy{width:100%;background:#128c7e;color:#fff;margin-top:10px}
+.copy{width:100%;background:#128c7e;color:white;margin-top:10px}
 .note{font-size:12px;color:#666;margin-top:8px;text-align:center}
 .hidden{display:none}
 </style>
@@ -40,49 +39,57 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 <button id="tab2" class="tab" onclick="showMulti()">تقرير المحطات</button>
 </div>
 
-<!-- تقرير الرحلة -->
-
 <div id="single">
 
 <div class="grid">
 
-<label>التاريخ
+<label>
+التاريخ
 <input id="s_date" type="date">
 </label>
 
-<label>رقم الرحلة
+<label>
+رقم الرحلة
 <select id="s_train"></select>
 </label>
 
-<label>من
+<label>
+من
 <select id="s_from"></select>
 </label>
 
-<label>إلى
+<label>
+إلى
 <select id="s_to"></select>
 </label>
 
-<label class="full">وقت المغادرة
+<label class="full">
+وقت المغادرة
 <input id="s_time" type="time" value="22:30">
 </label>
 
-<label>Business
+<label>
+Business
 <select id="s_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="s_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="s_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="s_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="s_s"></select>
 </label>
 
@@ -90,51 +97,56 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 
 
-<!-- تقرير المحطات -->
-
 <div id="multi" class="hidden">
 
 <div class="grid">
 
-<label>التاريخ
+<label>
+التاريخ
 <input id="m_date" type="date">
 </label>
 
-<label>رقم الرحلة
+<label>
+رقم الرحلة
 <select id="m_train"></select>
 </label>
 
-<label class="full">وقت المغادرة
+<label class="full">
+وقت المغادرة
 <input id="m_time" type="time" value="18:00">
 </label>
 
 </div>
 
 
-<!-- الرياض -->
-
 <div class="station">
+
 <div class="station-title">📍 الرياض</div>
 
 <div class="grid">
 
-<label>Business
+<label>
+Business
 <select id="r_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="r_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="r_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="r_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="r_s"></select>
 </label>
 
@@ -142,30 +154,34 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 
 
-<!-- المجمعة -->
-
 <div class="station">
+
 <div class="station-title">📍 المجمعة</div>
 
 <div class="grid">
 
-<label>Business
+<label>
+Business
 <select id="m_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="m_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="m_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="m_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="m_s"></select>
 </label>
 
@@ -173,30 +189,34 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 
 
-<!-- القصيم -->
-
 <div class="station">
+
 <div class="station-title">📍 القصيم</div>
 
 <div class="grid">
 
-<label>Business
+<label>
+Business
 <select id="q_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="q_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="q_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="q_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="q_s"></select>
 </label>
 
@@ -204,30 +224,34 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 
 
-<!-- حائل -->
-
 <div class="station">
+
 <div class="station-title">📍 حائل</div>
 
 <div class="grid">
 
-<label>Business
+<label>
+Business
 <select id="ha_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="ha_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="ha_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="ha_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="ha_s"></select>
 </label>
 
@@ -235,30 +259,34 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 
 
-<!-- الجوف -->
-
 <div class="station">
+
 <div class="station-title">📍 الجوف</div>
 
 <div class="grid">
 
-<label>Business
+<label>
+Business
 <select id="j_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="j_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="j_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="j_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="j_s"></select>
 </label>
 
@@ -266,30 +294,34 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 
 
-<!-- القريات -->
-
 <div class="station">
+
 <div class="station-title">📍 القريات</div>
 
 <div class="grid">
 
-<label>Business
+<label>
+Business
 <select id="c_b"></select>
 </label>
 
-<label>Economy
+<label>
+Economy
 <select id="c_e"></select>
 </label>
 
-<label>Waiting
+<label>
+Waiting
 <select id="c_w"></select>
 </label>
 
-<label>Baggage
+<label>
+Baggage
 <select id="c_g"></select>
 </label>
 
-<label>Shipment
+<label>
+Shipment
 <select id="c_s"></select>
 </label>
 
@@ -303,7 +335,9 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 
 <textarea id="output" class="output" readonly></textarea>
 
-<button class="copy" onclick="copyReport()">📋 نسخ النص</button>
+<button class="copy" onclick="copyReport()">
+📋 نسخ النص
+</button>
 
 <div id="status" class="note">
 اضغط «نسخ النص» ثم الصق مباشرة في واتساب.
@@ -317,11 +351,11 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 
 function fillSelect(id,max,selected=0){
 
-let x=document.getElementById(id);
+const x=document.getElementById(id);
 
 for(let i=0;i<=max;i++){
 
-let o=document.createElement("option");
+const o=document.createElement("option");
 
 o.value=i;
 o.textContent=i;
@@ -338,8 +372,8 @@ x.appendChild(o);
 const stations=[
 "الرياض",
 "المجمعة",
-"القصيم",
 "حائل",
+"القصيم",
 "الجوف",
 "القريات"
 ];
@@ -347,11 +381,11 @@ const stations=[
 
 function fillStations(id,selected){
 
-let x=document.getElementById(id);
+const x=document.getElementById(id);
 
 stations.forEach(s=>{
 
-let o=document.createElement("option");
+const o=document.createElement("option");
 
 o.value=s;
 o.textContent=s;
@@ -366,22 +400,26 @@ x.appendChild(o);
 
 
 function v(id){
-return document.getElementById(id).value||"";
+
+return document.getElementById(id).value||""
+
 }
 
 
 function n(id){
-return Number(v(id))||0;
+
+return Number(v(id))||0
+
 }
 
 
 function d(id){
 
-let x=v(id);
+const x=v(id);
 
 if(!x)return "";
 
-let p=x.split("-");
+const p=x.split("-");
 
 return p.length===3
 ?`${p[2]}/${p[1]}/${p[0]}`
@@ -390,11 +428,12 @@ return p.length===3
 }
 
 
-/* تقرير الرحلة */
-
 function singleText(){
 
-let total=n("s_b")+n("s_e")+n("s_w");
+const total=
+n("s_b")+
+n("s_e")+
+n("s_w");
 
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
@@ -421,52 +460,60 @@ Baggage car is at the front of the train.`;
 }
 
 
-/* تقرير المحطات */
-
 function multiText(){
 
-let rows=[
+const rows=[
 
 ["الرياض","r_b","r_e","r_w","r_g","r_s"],
+
 ["المجمعة","m_b","m_e","m_w","m_g","m_s"],
+
 ["القصيم","q_b","q_e","q_w","q_g","q_s"],
+
 ["حائل","ha_b","ha_e","ha_w","ha_g","ha_s"],
+
 ["الجوف","j_b","j_e","j_w","j_g","j_s"],
+
 ["القريات","c_b","c_e","c_w","c_g","c_s"]
 
 ];
 
-let total=0;
-let bags=0;
-let shipments=0;
 
-let body="";
+let total=0,
+bags=0,
+shipments=0,
+body="";
+
 
 rows.forEach(r=>{
 
-let b=n(r[1]);
-let e=n(r[2]);
-let w=n(r[3]);
-let g=n(r[4]);
-let s=n(r[5]);
+const b=n(r[1]);
+const e=n(r[2]);
+const w=n(r[3]);
+const g=n(r[4]);
+const s=n(r[5]);
 
-let t=b+e+w;
+const t=b+e+w;
 
 total+=t;
 bags+=g;
 shipments+=s;
 
 body+=`📍 ${r[0]}
+
 💺 Business: ${b}
 🪑 Economy: ${e}
 Waiting: ${w}
+
 🧳 Baggage: ${g}
 📦 Shipment: ${s}
+
 Total: ${t}
 
 `;
 
 });
+
 
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
@@ -479,7 +526,9 @@ ${d("m_date")}
 
 👥 Passengers by Destination
 
-${body}👥 Total Passengers: ${total}
+${body}
+
+👥 Total Passengers: ${total}
 🧳 Total Baggage: ${bags}
 📦 Total Shipment: ${shipments}`;
 
@@ -489,7 +538,10 @@ ${body}👥 Total Passengers: ${total}
 function update(){
 
 document.getElementById("output").value=
-document.getElementById("multi").classList.contains("hidden")
+
+document.getElementById("multi")
+.classList.contains("hidden")
+
 ?singleText()
 :multiText();
 
@@ -498,11 +550,17 @@ document.getElementById("multi").classList.contains("hidden")
 
 function showSingle(){
 
-document.getElementById("single").classList.remove("hidden");
-document.getElementById("multi").classList.add("hidden");
+document.getElementById("single")
+.classList.remove("hidden");
 
-document.getElementById("tab1").classList.add("active");
-document.getElementById("tab2").classList.remove("active");
+document.getElementById("multi")
+.classList.add("hidden");
+
+document.getElementById("tab1")
+.classList.add("active");
+
+document.getElementById("tab2")
+.classList.remove("active");
 
 update();
 
@@ -511,11 +569,17 @@ update();
 
 function showMulti(){
 
-document.getElementById("single").classList.add("hidden");
-document.getElementById("multi").classList.remove("hidden");
+document.getElementById("single")
+.classList.add("hidden");
 
-document.getElementById("tab1").classList.remove("active");
-document.getElementById("tab2").classList.add("active");
+document.getElementById("multi")
+.classList.remove("hidden");
+
+document.getElementById("tab1")
+.classList.remove("active");
+
+document.getElementById("tab2")
+.classList.add("active");
 
 update();
 
@@ -524,28 +588,34 @@ update();
 
 async function copyReport(){
 
-let text=document.getElementById("output").value;
+const text=document
+.getElementById("output")
+.value;
 
 try{
 
 await navigator.clipboard.writeText(text);
 
-document.getElementById("status").textContent=
+document.getElementById("status")
+.textContent=
 "✅ تم النسخ كنص. افتح واتساب والصق.";
 
 }catch(e){
 
-let x=document.getElementById("output");
+const x=document.getElementById("output");
 
 x.removeAttribute("readonly");
+
 x.focus();
+
 x.select();
 
 document.execCommand("copy");
 
 x.setAttribute("readonly","readonly");
 
-document.getElementById("status").textContent=
+document.getElementById("status")
+.textContent=
 "✅ تم النسخ كنص. افتح واتساب والصق.";
 
 }
@@ -553,60 +623,57 @@ document.getElementById("status").textContent=
 }
 
 
-/* أرقام القطارات من 0 إلى 200 */
-
 fillSelect("s_train",200,39);
+
 fillSelect("m_train",200,39);
 
 
-/* تقرير الرحلة */
-
 fillSelect("s_b",450);
+
 fillSelect("s_e",450);
+
 fillSelect("s_w",20);
+
 fillSelect("s_g",200);
+
 fillSelect("s_s",150);
 
 
-/* تقرير المحطات */
-
-const stationIds=[
-"r",
-"m",
-"q",
-"ha",
-"j",
-"c"
-];
-
-stationIds.forEach(id=>{
+["r","m","q","ha","j","c"].forEach(id=>{
 
 fillSelect(id+"_b",450);
+
 fillSelect(id+"_e",450);
+
 fillSelect(id+"_w",20);
+
 fillSelect(id+"_g",200);
+
 fillSelect(id+"_s",150);
 
 });
 
 
-/* المحطات في تقرير الرحلة */
-
 fillStations("s_from","المجمعة");
+
 fillStations("s_to","الرياض");
 
 
-/* تاريخ اليوم */
-
-const today=new Date().toISOString().split("T")[0];
-
-document.getElementById("s_date").value=today;
-document.getElementById("m_date").value=today;
+const today=
+new Date()
+.toISOString()
+.split("T")[0];
 
 
-/* تحديث تلقائي */
+document.getElementById("s_date")
+.value=today;
+
+document.getElementById("m_date")
+.value=today;
+
 
 document.addEventListener("input",update);
+
 document.addEventListener("change",update);
 
 update();
