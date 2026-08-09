@@ -29,6 +29,7 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </head>
 
 <body>
+
 <div class="app">
 <div class="card">
 
@@ -39,7 +40,11 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 <button id="tab2" class="tab" onclick="showMulti()">تقرير المحطات</button>
 </div>
 
+
+<!-- تقرير الرحلة -->
+
 <div id="single">
+
 <div class="grid">
 
 <label>التاريخ
@@ -83,7 +88,11 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </label>
 
 </div>
+
 </div>
+
+
+<!-- تقرير المحطات القديم -->
 
 <div id="multi" class="hidden">
 
@@ -103,14 +112,230 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 
 </div>
 
+
+<!-- الرياض -->
+
 <div class="station">
-<div class="station-title">📍 بيانات الوجهة</div>
+<div class="station-title">📍 Riyadh</div>
 
 <div class="grid">
 
-<label class="full">المحطة / الوجهة
-<select id="m_station"></select>
+<label>Business
+<select id="r_b"></select>
 </label>
+
+<label>Economy
+<select id="r_e"></select>
+</label>
+
+<label>Waiting
+<select id="r_w"></select>
+</label>
+
+<label>Baggage
+<select id="r_g"></select>
+</label>
+
+<label>Shipment
+<select id="r_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- الدمام -->
+
+<div class="station">
+<div class="station-title">📍 Dammam</div>
+
+<div class="grid">
+
+<label>Business
+<select id="d_b"></select>
+</label>
+
+<label>Economy
+<select id="d_e"></select>
+</label>
+
+<label>Waiting
+<select id="d_w"></select>
+</label>
+
+<label>Baggage
+<select id="d_g"></select>
+</label>
+
+<label>Shipment
+<select id="d_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- الجوف -->
+
+<div class="station">
+<div class="station-title">📍 Al Jouf</div>
+
+<div class="grid">
+
+<label>Business
+<select id="j_b"></select>
+</label>
+
+<label>Economy
+<select id="j_e"></select>
+</label>
+
+<label>Waiting
+<select id="j_w"></select>
+</label>
+
+<label>Baggage
+<select id="j_g"></select>
+</label>
+
+<label>Shipment
+<select id="j_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- الهفوف -->
+
+<div class="station">
+<div class="station-title">📍 Al Hofuf</div>
+
+<div class="grid">
+
+<label>Business
+<select id="h_b"></select>
+</label>
+
+<label>Economy
+<select id="h_e"></select>
+</label>
+
+<label>Waiting
+<select id="h_w"></select>
+</label>
+
+<label>Baggage
+<select id="h_g"></select>
+</label>
+
+<label>Shipment
+<select id="h_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- حائل -->
+
+<div class="station">
+<div class="station-title">📍 Hail</div>
+
+<div class="grid">
+
+<label>Business
+<select id="ha_b"></select>
+</label>
+
+<label>Economy
+<select id="ha_e"></select>
+</label>
+
+<label>Waiting
+<select id="ha_w"></select>
+</label>
+
+<label>Baggage
+<select id="ha_g"></select>
+</label>
+
+<label>Shipment
+<select id="ha_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- القصيم -->
+
+<div class="station">
+<div class="station-title">📍 Qassim</div>
+
+<div class="grid">
+
+<label>Business
+<select id="q_b"></select>
+</label>
+
+<label>Economy
+<select id="q_e"></select>
+</label>
+
+<label>Waiting
+<select id="q_w"></select>
+</label>
+
+<label>Baggage
+<select id="q_g"></select>
+</label>
+
+<label>Shipment
+<select id="q_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- القريات -->
+
+<div class="station">
+<div class="station-title">📍 Al Qurayyat</div>
+
+<div class="grid">
+
+<label>Business
+<select id="c_b"></select>
+</label>
+
+<label>Economy
+<select id="c_e"></select>
+</label>
+
+<label>Waiting
+<select id="c_w"></select>
+</label>
+
+<label>Baggage
+<select id="c_g"></select>
+</label>
+
+<label>Shipment
+<select id="c_s"></select>
+</label>
+
+</div>
+</div>
+
+
+<!-- المجمعة -->
+
+<div class="station">
+<div class="station-title">📍 Majmaah</div>
+
+<div class="grid">
 
 <label>Business
 <select id="m_b"></select>
@@ -134,7 +359,40 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 
 </div>
 </div>
+
+
+<!-- بقيق -->
+
+<div class="station">
+<div class="station-title">📍 Buqaiq</div>
+
+<div class="grid">
+
+<label>Business
+<select id="b_b"></select>
+</label>
+
+<label>Economy
+<select id="b_e"></select>
+</label>
+
+<label>Waiting
+<select id="b_w"></select>
+</label>
+
+<label>Baggage
+<select id="b_g"></select>
+</label>
+
+<label>Shipment
+<select id="b_s"></select>
+</label>
+
 </div>
+</div>
+
+</div>
+
 
 <h2>📱 النص الجاهز للواتساب</h2>
 
@@ -149,7 +407,28 @@ input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;bor
 </div>
 </div>
 
+
 <script>
+
+function fillSelect(id,max,selected=0){
+
+let x=document.getElementById(id);
+
+for(let i=0;i<=max;i++){
+
+let o=document.createElement("option");
+
+o.value=i;
+o.textContent=i;
+
+if(i===selected)o.selected=true;
+
+x.appendChild(o);
+
+}
+
+}
+
 
 const stations=[
 "Riyadh",
@@ -163,42 +442,57 @@ const stations=[
 "Buqaiq"
 ];
 
-function fillSelect(id,max,selected=0){
-const x=document.getElementById(id);
-for(let i=0;i<=max;i++){
-let o=document.createElement("option");
-o.value=i;
-o.textContent=i;
-if(i===selected)o.selected=true;
-x.appendChild(o);
-}
-}
 
 function fillStations(id,selected){
-const x=document.getElementById(id);
+
+let x=document.getElementById(id);
+
 stations.forEach(s=>{
+
 let o=document.createElement("option");
+
 o.value=s;
 o.textContent=s;
+
 if(s===selected)o.selected=true;
+
 x.appendChild(o);
+
 });
+
 }
+
 
 function v(id){
+
 return document.getElementById(id).value||"";
+
 }
+
 
 function n(id){
+
 return Number(v(id))||0;
+
 }
 
+
 function d(id){
+
 let x=v(id);
+
 if(!x)return "";
+
 let p=x.split("-");
-return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:x;
+
+return p.length===3
+?`${p[2]}/${p[1]}/${p[0]}`
+:x;
+
 }
+
+
+/* تقرير الرحلة */
 
 function singleText(){
 
@@ -225,16 +519,61 @@ Total: ${total}
 
 📝 Note:
 Baggage car is at the front of the train.`;
+
 }
+
+
+/* تقرير المحطات */
 
 function multiText(){
 
-let b=n("m_b");
-let e=n("m_e");
-let w=n("m_w");
-let g=n("m_g");
-let s=n("m_s");
-let total=b+e+w;
+let rows=[
+
+["Riyadh","r_b","r_e","r_w","r_g","r_s"],
+["Dammam","d_b","d_e","d_w","d_g","d_s"],
+["Al Jouf","j_b","j_e","j_w","j_g","j_s"],
+["Al Hofuf","h_b","h_e","h_w","h_g","h_s"],
+["Hail","ha_b","ha_e","ha_w","ha_g","ha_s"],
+["Qassim","q_b","q_e","q_w","q_g","q_s"],
+["Al Qurayyat","c_b","c_e","c_w","c_g","c_s"],
+["Majmaah","m_b","m_e","m_w","m_g","m_s"],
+["Buqaiq","b_b","b_e","b_w","b_g","b_s"]
+
+];
+
+let total=0;
+let bags=0;
+let shipments=0;
+
+let body="";
+
+
+rows.forEach(r=>{
+
+let b=n(r[1]);
+let e=n(r[2]);
+let w=n(r[3]);
+let g=n(r[4]);
+let s=n(r[5]);
+
+let t=b+e+w;
+
+total+=t;
+bags+=g;
+shipments+=s;
+
+body+=`📍 ${r[0]}
+💺 Business: ${b}
+🪑 Economy: ${e}
+Waiting: ${w}
+🧳 Baggage: ${g}
+📦 Shipment: ${s}
+Total: ${t}
+
+`;
+
+});
+
 
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
@@ -247,49 +586,55 @@ ${d("m_date")}
 
 👥 Passengers by Destination
 
-📍 ${v("m_station")}
-💺 Business: ${b}
-🪑 Economy: ${e}
-Waiting: ${w}
-🧳 Baggage: ${g}
-📦 Shipment: ${s}
-Total: ${total}
+${body}👥 Total Passengers: ${total}
+🧳 Total Baggage: ${bags}
+📦 Total Shipment: ${shipments}`;
 
-👥 Total Passengers: ${total}
-🧳 Total Baggage: ${g}
-📦 Total Shipment: ${s}`;
 }
+
 
 function update(){
 
 document.getElementById("output").value=
+
 document.getElementById("multi").classList.contains("hidden")
+
 ?singleText()
+
 :multiText();
 
 }
 
+
 function showSingle(){
 
 document.getElementById("single").classList.remove("hidden");
+
 document.getElementById("multi").classList.add("hidden");
 
 document.getElementById("tab1").classList.add("active");
+
 document.getElementById("tab2").classList.remove("active");
 
 update();
+
 }
+
 
 function showMulti(){
 
 document.getElementById("single").classList.add("hidden");
+
 document.getElementById("multi").classList.remove("hidden");
 
 document.getElementById("tab1").classList.remove("active");
+
 document.getElementById("tab2").classList.add("active");
 
 update();
+
 }
+
 
 async function copyReport(){
 
@@ -307,7 +652,9 @@ document.getElementById("status").textContent=
 let x=document.getElementById("output");
 
 x.removeAttribute("readonly");
+
 x.focus();
+
 x.select();
 
 document.execCommand("copy");
@@ -318,37 +665,58 @@ document.getElementById("status").textContent=
 "✅ تم النسخ كنص. افتح واتساب والصق.";
 
 }
+
 }
 
 
-/* رقم القطارات من 0 إلى 200 */
+/* أرقام القطارات 0 - 200 */
+
 fillSelect("s_train",200,39);
 fillSelect("m_train",200,39);
 
-/* أعداد الركاب */
-fillSelect("s_b",450,0);
-fillSelect("s_e",450,0);
-fillSelect("s_w",20,0);
-fillSelect("s_g",200,0);
-fillSelect("s_s",150,0);
 
-fillSelect("m_b",450,0);
-fillSelect("m_e",450,0);
-fillSelect("m_w",20,0);
-fillSelect("m_g",200,0);
-fillSelect("m_s",150,0);
+/* تقرير الرحلة */
+
+fillSelect("s_b",450);
+fillSelect("s_e",450);
+fillSelect("s_w",20);
+fillSelect("s_g",200);
+fillSelect("s_s",150);
+
+
+/* تقرير المحطات */
+
+const stationIds=[
+"r","d","j","h","ha","q","c","m","b"
+];
+
+stationIds.forEach(id=>{
+
+fillSelect(id+"_b",450);
+fillSelect(id+"_e",450);
+fillSelect(id+"_w",20);
+fillSelect(id+"_g",200);
+fillSelect(id+"_s",150);
+
+});
+
 
 /* المحطات */
+
 fillStations("s_from","Majmaah");
 fillStations("s_to","Riyadh");
-fillStations("m_station","Majmaah");
+
 
 /* تاريخ اليوم */
+
 const today=new Date().toISOString().split("T")[0];
+
 document.getElementById("s_date").value=today;
 document.getElementById("m_date").value=today;
 
-/* تحديث التقرير تلقائياً */
+
+/* تحديث تلقائي */
+
 document.addEventListener("input",update);
 document.addEventListener("change",update);
 
