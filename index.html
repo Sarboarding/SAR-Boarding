@@ -1,353 +1,314 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAR - تقارير الركاب</title>
+<title>SAR - Passenger Station Report</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#111}
-.app{max-width:650px;margin:auto;padding:14px}
-.card{background:white;border-radius:18px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:14px}
-h1{font-size:21px;margin:0 0 15px;text-align:center}
-h2{font-size:17px;margin:16px 0 10px}
-.tabs{display:flex;gap:8px;margin-bottom:14px}
-button{border:0;border-radius:12px;padding:12px;font-size:16px;font-weight:700}
-.tab{flex:1;background:#e6e9ed}.tab.active{background:#222;color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-label{font-size:13px;font-weight:700}
-input,select{width:100%;margin-top:5px;padding:12px;border:1px solid #d5d9de;border-radius:10px;font-size:16px;background:#fff}
-.full{grid-column:1/-1}
-.station{border:1px solid #ddd;border-radius:13px;padding:12px;margin:10px 0}
-.station-title{font-size:16px;font-weight:800;margin-bottom:9px}
-.output{width:100%;min-height:330px;padding:13px;border:1px solid #ccc;border-radius:12px;font-size:15px;line-height:1.55;direction:ltr;text-align:left;white-space:pre-wrap;background:#fafafa}
-.copy{width:100%;background:#128c7e;color:white;margin-top:10px}
-.note{font-size:12px;color:#666;margin-top:8px;text-align:center}
-.hidden{display:none}
+
+body{
+margin:0;
+background:#f3f4f6;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+color:#111
+}
+
+.app{
+max-width:650px;
+margin:auto;
+padding:14px
+}
+
+.card{
+background:white;
+border-radius:18px;
+padding:16px;
+box-shadow:0 2px 12px rgba(0,0,0,.08);
+margin-bottom:14px
+}
+
+h1{
+font-size:21px;
+margin:0 0 18px;
+text-align:center
+}
+
+h2{
+font-size:17px;
+margin:18px 0 10px
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+label{
+font-size:13px;
+font-weight:700
+}
+
+input,select{
+width:100%;
+margin-top:5px;
+padding:12px;
+border:1px solid #d5d9de;
+border-radius:10px;
+font-size:16px;
+background:#fff
+}
+
+.full{
+grid-column:1/-1
+}
+
+.station-select-box{
+border:1px solid #ddd;
+border-radius:13px;
+padding:13px;
+margin-top:12px;
+background:#fafafa
+}
+
+.station-select-title{
+font-size:15px;
+font-weight:800;
+margin-bottom:10px
+}
+
+.station-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px
+}
+
+.station-option{
+display:flex;
+align-items:center;
+gap:8px;
+background:white;
+border:1px solid #ddd;
+border-radius:10px;
+padding:10px;
+font-size:14px;
+font-weight:700;
+cursor:pointer
+}
+
+.station-option input{
+width:20px;
+height:20px;
+margin:0;
+cursor:pointer
+}
+
+.station{
+border:1px solid #ddd;
+border-radius:13px;
+padding:12px;
+margin:10px 0;
+background:white
+}
+
+.station-title{
+font-size:16px;
+font-weight:800;
+margin-bottom:9px
+}
+
+.output{
+width:100%;
+min-height:380px;
+padding:13px;
+border:1px solid #ccc;
+border-radius:12px;
+font-size:15px;
+line-height:1.55;
+direction:ltr;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa
+}
+
+.copy{
+width:100%;
+border:0;
+border-radius:12px;
+padding:12px;
+font-size:16px;
+font-weight:700;
+background:#128c7e;
+color:white;
+margin-top:10px;
+cursor:pointer
+}
+
+.note{
+font-size:12px;
+color:#666;
+margin-top:8px;
+text-align:center
+}
+
+.hidden{
+display:none
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="app">
+
 <div class="card">
 
-<h1>🇸🇦 SAR — مولّد تقارير الركاب</h1>
-
-<div class="tabs">
-<button id="tab1" class="tab active" onclick="showSingle()">تقرير رحلة</button>
-<button id="tab2" class="tab" onclick="showMulti()">تقرير المحطات</button>
-</div>
-
-<div id="single">
+<h1>🇸🇦 SAR — Passenger Station Report</h1>
 
 <div class="grid">
 
 <label>
-التاريخ
-<input id="s_date" type="date">
-</label>
-
-<label>
-رقم الرحلة
-<select id="s_train"></select>
-</label>
-
-<label>
-من
-<select id="s_from"></select>
-</label>
-
-<label>
-إلى
-<select id="s_to"></select>
-</label>
-
-<label class="full">
-وقت المغادرة
-<input id="s_time" type="time" value="22:30">
-</label>
-
-<label>
-Business
-<select id="s_b"></select>
-</label>
-
-<label>
-Economy
-<select id="s_e"></select>
-</label>
-
-<label>
-Waiting
-<select id="s_w"></select>
-</label>
-
-<label>
-Baggage
-<select id="s_g"></select>
-</label>
-
-<label>
-Shipment
-<select id="s_s"></select>
-</label>
-
-</div>
-</div>
-
-
-<div id="multi" class="hidden">
-
-<div class="grid">
-
-<label>
-التاريخ
+Date
 <input id="m_date" type="date">
 </label>
 
 <label>
-رقم الرحلة
+Train Number
 <select id="m_train"></select>
 </label>
 
-<label class="full">
-وقت المغادرة
+<label>
+Departure Station
+<select id="m_from"></select>
+</label>
+
+<label>
+Departure Time
 <input id="m_time" type="time" value="18:00">
 </label>
 
 </div>
 
+<h2>Arrival Stations</h2>
 
-<div class="station">
+<div class="station-select-box">
 
-<div class="station-title">📍 الرياض</div>
+<div class="station-select-title">
+Select the stations you want to include in the report
+</div>
 
-<div class="grid">
+<div class="station-list">
 
-<label>
-Business
-<select id="r_b"></select>
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Riyadh" data-id="r">
+Riyadh
 </label>
 
-<label>
-Economy
-<select id="r_e"></select>
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Al-Majma'ah" data-id="m">
+Al-Majma'ah
 </label>
 
-<label>
-Waiting
-<select id="r_w"></select>
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Al-Qassim" data-id="q">
+Al-Qassim
 </label>
 
-<label>
-Baggage
-<select id="r_g"></select>
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Hail" data-id="ha">
+Hail
 </label>
 
-<label>
-Shipment
-<select id="r_s"></select>
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Al-Jouf" data-id="j">
+Al-Jouf
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Al-Qurayyat" data-id="c">
+Al-Qurayyat
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Dammam" data-id="d">
+Dammam
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Buqayq" data-id="bq">
+Buqayq
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check" value="Al-Hofuf" data-id="h">
+Al-Hofuf
 </label>
 
 </div>
 </div>
 
+<div id="stationFields"></div>
 
-<div class="station">
-
-<div class="station-title">📍 المجمعة</div>
-
-<div class="grid">
-
-<label>
-Business
-<select id="m_b"></select>
-</label>
-
-<label>
-Economy
-<select id="m_e"></select>
-</label>
-
-<label>
-Waiting
-<select id="m_w"></select>
-</label>
-
-<label>
-Baggage
-<select id="m_g"></select>
-</label>
-
-<label>
-Shipment
-<select id="m_s"></select>
-</label>
-
-</div>
-</div>
-
-
-<div class="station">
-
-<div class="station-title">📍 القصيم</div>
-
-<div class="grid">
-
-<label>
-Business
-<select id="q_b"></select>
-</label>
-
-<label>
-Economy
-<select id="q_e"></select>
-</label>
-
-<label>
-Waiting
-<select id="q_w"></select>
-</label>
-
-<label>
-Baggage
-<select id="q_g"></select>
-</label>
-
-<label>
-Shipment
-<select id="q_s"></select>
-</label>
-
-</div>
-</div>
-
-
-<div class="station">
-
-<div class="station-title">📍 حائل</div>
-
-<div class="grid">
-
-<label>
-Business
-<select id="ha_b"></select>
-</label>
-
-<label>
-Economy
-<select id="ha_e"></select>
-</label>
-
-<label>
-Waiting
-<select id="ha_w"></select>
-</label>
-
-<label>
-Baggage
-<select id="ha_g"></select>
-</label>
-
-<label>
-Shipment
-<select id="ha_s"></select>
-</label>
-
-</div>
-</div>
-
-
-<div class="station">
-
-<div class="station-title">📍 الجوف</div>
-
-<div class="grid">
-
-<label>
-Business
-<select id="j_b"></select>
-</label>
-
-<label>
-Economy
-<select id="j_e"></select>
-</label>
-
-<label>
-Waiting
-<select id="j_w"></select>
-</label>
-
-<label>
-Baggage
-<select id="j_g"></select>
-</label>
-
-<label>
-Shipment
-<select id="j_s"></select>
-</label>
-
-</div>
-</div>
-
-
-<div class="station">
-
-<div class="station-title">📍 القريات</div>
-
-<div class="grid">
-
-<label>
-Business
-<select id="c_b"></select>
-</label>
-
-<label>
-Economy
-<select id="c_e"></select>
-</label>
-
-<label>
-Waiting
-<select id="c_w"></select>
-</label>
-
-<label>
-Baggage
-<select id="c_g"></select>
-</label>
-
-<label>
-Shipment
-<select id="c_s"></select>
-</label>
-
-</div>
-</div>
-
-</div>
-
-
-<h2>📱 النص الجاهز للواتساب</h2>
+<h2>📱 WhatsApp Report</h2>
 
 <textarea id="output" class="output" readonly></textarea>
 
 <button class="copy" onclick="copyReport()">
-📋 نسخ النص
+📋 Copy Report
 </button>
 
 <div id="status" class="note">
-اضغط «نسخ النص» ثم الصق مباشرة في واتساب.
+Tap "Copy Report" and paste directly into WhatsApp.
 </div>
 
 </div>
 </div>
-
 
 <script>
+
+const stations=[
+{
+name:"Riyadh",
+id:"r"
+},
+{
+name:"Al-Majma'ah",
+id:"m"
+},
+{
+name:"Al-Qassim",
+id:"q"
+},
+{
+name:"Hail",
+id:"ha"
+},
+{
+name:"Al-Jouf",
+id:"j"
+},
+{
+name:"Al-Qurayyat",
+id:"c"
+},
+{
+name:"Dammam",
+id:"d"
+},
+{
+name:"Buqayq",
+id:"bq"
+},
+{
+name:"Al-Hofuf",
+id:"h"
+}
+];
+
 
 function fillSelect(id,max,selected=0){
 
@@ -360,23 +321,15 @@ const o=document.createElement("option");
 o.value=i;
 o.textContent=i;
 
-if(i===selected)o.selected=true;
+if(i===selected){
+o.selected=true;
+}
 
 x.appendChild(o);
 
 }
 
 }
-
-
-const stations=[
-"الرياض",
-"المجمعة",
-"حائل",
-"القصيم",
-"الجوف",
-"القريات"
-];
 
 
 function fillStations(id,selected){
@@ -387,10 +340,12 @@ stations.forEach(s=>{
 
 const o=document.createElement("option");
 
-o.value=s;
-o.textContent=s;
+o.value=s.name;
+o.textContent=s.name;
 
-if(s===selected)o.selected=true;
+if(s.name===selected){
+o.selected=true;
+}
 
 x.appendChild(o);
 
@@ -401,14 +356,14 @@ x.appendChild(o);
 
 function v(id){
 
-return document.getElementById(id).value||""
+return document.getElementById(id).value||"";
 
 }
 
 
 function n(id){
 
-return Number(v(id))||0
+return Number(v(id))||0;
 
 }
 
@@ -428,78 +383,123 @@ return p.length===3
 }
 
 
-function singleText(){
+function createStationFields(){
 
-const total=
-n("s_b")+
-n("s_e")+
-n("s_w");
+const container=document.getElementById("stationFields");
 
-return `🇸🇦 Saudi Arabia Railways (SAR)
+container.innerHTML="";
 
-📋 Departure Report
-📍 ${v("s_from")} Station
-${d("s_date")}
+stations.forEach(s=>{
 
-🚆 Train: #${v("s_train")}
-➡️ ${v("s_from")} → ${v("s_to")}
-🕖 Departure: ${v("s_time")}
+const div=document.createElement("div");
 
-👥 Passengers
-💺 Business: ${n("s_b")}
-🪑 Economy: ${n("s_e")}
-Waiting: ${n("s_w")}
-Total: ${total}
+div.className="station hidden";
 
-🧳 Baggage: ${n("s_g")}
-📦 Shipment: ${n("s_s")}
+div.id="station_"+s.id;
 
-📝 Note:
-Baggage car is at the front of the train.`;
+div.innerHTML=`
+
+<div class="station-title">
+📍 ${s.name}
+</div>
+
+<div class="grid">
+
+<label>
+Business
+<select id="${s.id}_b"></select>
+</label>
+
+<label>
+Economy
+<select id="${s.id}_e"></select>
+</label>
+
+<label>
+Waiting
+<select id="${s.id}_w"></select>
+</label>
+
+<label>
+Baggage
+<select id="${s.id}_g"></select>
+</label>
+
+<label>
+Shipment
+<select id="${s.id}_s"></select>
+</label>
+
+</div>
+`;
+
+container.appendChild(div);
+
+fillSelect(s.id+"_b",450);
+fillSelect(s.id+"_e",450);
+fillSelect(s.id+"_w",20);
+fillSelect(s.id+"_g",200);
+fillSelect(s.id+"_s",150);
+
+});
+
+}
+
+
+function updateSelectedStations(){
+
+document.querySelectorAll(".station-check").forEach(check=>{
+
+const stationId=check.dataset.id;
+
+const box=document.getElementById("station_"+stationId);
+
+if(box){
+
+if(check.checked){
+box.classList.remove("hidden");
+}else{
+box.classList.add("hidden");
+}
+
+}
+
+});
+
+update();
 
 }
 
 
 function multiText(){
 
-const rows=[
+let total=0;
+let bags=0;
+let shipments=0;
+let body="";
 
-["الرياض","r_b","r_e","r_w","r_g","r_s"],
-
-["المجمعة","m_b","m_e","m_w","m_g","m_s"],
-
-["القصيم","q_b","q_e","q_w","q_g","q_s"],
-
-["حائل","ha_b","ha_e","ha_w","ha_g","ha_s"],
-
-["الجوف","j_b","j_e","j_w","j_g","j_s"],
-
-["القريات","c_b","c_e","c_w","c_g","c_s"]
-
-];
+const selectedStations=
+document.querySelectorAll(".station-check:checked");
 
 
-let total=0,
-bags=0,
-shipments=0,
-body="";
+selectedStations.forEach(check=>{
 
+const stationName=check.value;
+const id=check.dataset.id;
 
-rows.forEach(r=>{
+const b=n(id+"_b");
+const e=n(id+"_e");
+const w=n(id+"_w");
+const g=n(id+"_g");
+const s=n(id+"_s");
 
-const b=n(r[1]);
-const e=n(r[2]);
-const w=n(r[3]);
-const g=n(r[4]);
-const s=n(r[5]);
+const stationTotal=b+e+w;
 
-const t=b+e+w;
-
-total+=t;
+total+=stationTotal;
 bags+=g;
 shipments+=s;
 
-body+=`📍 ${r[0]}
+body+=`📍 ${stationName}
 
 💺 Business: ${b}
 🪑 Economy: ${e}
@@ -508,97 +508,60 @@ Waiting: ${w}
 🧳 Baggage: ${g}
 📦 Shipment: ${s}
 
-Total: ${t}
+Total: ${stationTotal}
 
 `;
 
 });
 
 
+if(!body){
+
+body="No arrival stations selected.\n";
+
+}
+
+
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
-📋 Passenger Destination Report
-📍 تقرير المحطات
+📋 Passenger Station Report
+📍 Departure Station: ${v("m_from")}
 ${d("m_date")}
 
 🚆 Train: #${v("m_train")}
 🕕 Departure: ${v("m_time")}
 
-👥 Passengers by Destination
+➡️ Selected Arrival Stations
 
 ${body}
 
 👥 Total Passengers: ${total}
 🧳 Total Baggage: ${bags}
-📦 Total Shipment: ${shipments}`;
+📦 Total Shipment: ${shipments}
+
+📝 Note:
+Baggage car is at the front of the train.`;
 
 }
 
 
 function update(){
 
-document.getElementById("output").value=
-
-document.getElementById("multi")
-.classList.contains("hidden")
-
-?singleText()
-:multiText();
-
-}
-
-
-function showSingle(){
-
-document.getElementById("single")
-.classList.remove("hidden");
-
-document.getElementById("multi")
-.classList.add("hidden");
-
-document.getElementById("tab1")
-.classList.add("active");
-
-document.getElementById("tab2")
-.classList.remove("active");
-
-update();
-
-}
-
-
-function showMulti(){
-
-document.getElementById("single")
-.classList.add("hidden");
-
-document.getElementById("multi")
-.classList.remove("hidden");
-
-document.getElementById("tab1")
-.classList.remove("active");
-
-document.getElementById("tab2")
-.classList.add("active");
-
-update();
+document.getElementById("output").value=multiText();
 
 }
 
 
 async function copyReport(){
 
-const text=document
-.getElementById("output")
-.value;
+const text=document.getElementById("output").value;
 
 try{
 
 await navigator.clipboard.writeText(text);
 
-document.getElementById("status")
-.textContent=
-"✅ تم النسخ كنص. افتح واتساب والصق.";
+document.getElementById("status").textContent=
+"✅ Report copied successfully. Open WhatsApp and paste.";
 
 }catch(e){
 
@@ -614,67 +577,56 @@ document.execCommand("copy");
 
 x.setAttribute("readonly","readonly");
 
-document.getElementById("status")
-.textContent=
-"✅ تم النسخ كنص. افتح واتساب والصق.";
+document.getElementById("status").textContent=
+"✅ Report copied successfully. Open WhatsApp and paste.";
 
 }
 
 }
 
 
-fillSelect("s_train",200,39);
+/* Train number 0 - 200 */
 
 fillSelect("m_train",200,39);
 
 
-fillSelect("s_b",450);
+/* Departure stations */
 
-fillSelect("s_e",450);
-
-fillSelect("s_w",20);
-
-fillSelect("s_g",200);
-
-fillSelect("s_s",150);
+fillStations("m_from","Al-Majma'ah");
 
 
-["r","m","q","ha","j","c"].forEach(id=>{
+/* Create all station input fields */
 
-fillSelect(id+"_b",450);
-
-fillSelect(id+"_e",450);
-
-fillSelect(id+"_w",20);
-
-fillSelect(id+"_g",200);
-
-fillSelect(id+"_s",150);
-
-});
+createStationFields();
 
 
-fillStations("s_from","المجمعة");
-
-fillStations("s_to","الرياض");
-
+/* Today's date */
 
 const today=
 new Date()
 .toISOString()
 .split("T")[0];
 
+document.getElementById("m_date").value=today;
 
-document.getElementById("s_date")
-.value=today;
 
-document.getElementById("m_date")
-.value=today;
+/* Station selection */
 
+document.querySelectorAll(".station-check").forEach(check=>{
+
+check.addEventListener("change",updateSelectedStations);
+
+});
+
+
+/* Update report when values change */
 
 document.addEventListener("input",update);
 
 document.addEventListener("change",update);
+
+
+/* Initial report */
 
 update();
 
