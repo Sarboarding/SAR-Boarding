@@ -610,18 +610,6 @@ update();
 
 function multiText(){
 
-let totalPassengers=0;
-
-let totalBusiness=0;
-
-let totalEconomy=0;
-
-let totalWaiting=0;
-
-let totalBaggage=0;
-
-let totalShipment=0;
-
 let body="";
 
 
@@ -657,25 +645,12 @@ economy+
 waiting;
 
 
-totalBusiness+=business;
-
-totalEconomy+=economy;
-
-totalWaiting+=waiting;
-
-totalPassengers+=stationTotal;
-
-totalBaggage+=baggage;
-
-totalShipment+=shipment;
-
-
 /* Station report */
 
 body+=`📍 ${stationName}
 
 💺 Business: ${business}
-🪑 Economy: ${economy}
+🎟️ Economy: ${economy}
 Waiting: ${waiting}
 
 🧳 Baggage: ${baggage}
@@ -713,17 +688,6 @@ ${d("m_date")}
 ➡️ Arrival Stations
 
 ${body}
-
-━━━━━━━━━━━━━━━━━━
-
-👥 TOTAL PASSENGERS: ${totalPassengers}
-
-💺 Total Business: ${totalBusiness}
-🪑 Total Economy: ${totalEconomy}
-Waiting: ${totalWaiting}
-
-🧳 Total Baggage: ${totalBaggage}
-📦 Total Shipment: ${totalShipment}
 
 📝 Note:
 Baggage car is at the front of the train.`;
