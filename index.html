@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
@@ -66,6 +66,8 @@ background:#fff
 grid-column:1/-1
 }
 
+/* Arrival station selection */
+
 .station-select-box{
 border:1px solid #ddd;
 border-radius:13px;
@@ -106,6 +108,8 @@ margin:0;
 cursor:pointer
 }
 
+/* Station data */
+
 .station{
 border:1px solid #ddd;
 border-radius:13px;
@@ -122,7 +126,7 @@ margin-bottom:9px
 
 .output{
 width:100%;
-min-height:380px;
+min-height:400px;
 padding:13px;
 border:1px solid #ccc;
 border-radius:12px;
@@ -158,7 +162,6 @@ text-align:center
 display:none
 }
 </style>
-
 </head>
 
 <body>
@@ -168,6 +171,8 @@ display:none
 <div class="card">
 
 <h1>🇸🇦 SAR — Passenger Station Report</h1>
+
+<!-- Main Report Information -->
 
 <div class="grid">
 
@@ -193,6 +198,9 @@ Departure Time
 
 </div>
 
+
+<!-- Arrival Stations -->
+
 <h2>Arrival Stations</h2>
 
 <div class="station-select-box">
@@ -204,54 +212,69 @@ Select the stations you want to include in the report
 <div class="station-list">
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Riyadh" data-id="r">
+<input type="checkbox" class="station-check"
+value="Riyadh" data-id="r">
 Riyadh
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Majma'ah" data-id="m">
+<input type="checkbox" class="station-check"
+value="Al-Majma'ah" data-id="m">
 Al-Majma'ah
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Qassim" data-id="q">
+<input type="checkbox" class="station-check"
+value="Al-Qassim" data-id="q">
 Al-Qassim
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Hail" data-id="ha">
+<input type="checkbox" class="station-check"
+value="Hail" data-id="ha">
 Hail
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Jouf" data-id="j">
+<input type="checkbox" class="station-check"
+value="Al-Jouf" data-id="j">
 Al-Jouf
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Qurayyat" data-id="c">
+<input type="checkbox" class="station-check"
+value="Al-Qurayyat" data-id="c">
 Al-Qurayyat
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Dammam" data-id="d">
+<input type="checkbox" class="station-check"
+value="Dammam" data-id="d">
 Dammam
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Buqayq" data-id="bq">
+<input type="checkbox" class="station-check"
+value="Buqayq" data-id="bq">
 Buqayq
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Hofuf" data-id="h">
+<input type="checkbox" class="station-check"
+value="Al-Hofuf" data-id="h">
 Al-Hofuf
 </label>
 
 </div>
 </div>
 
+
+<!-- Station Input Fields -->
+
 <div id="stationFields"></div>
+
+
+<!-- WhatsApp Report -->
 
 <h2>📱 WhatsApp Report</h2>
 
@@ -268,47 +291,66 @@ Tap "Copy Report" and paste directly into WhatsApp.
 </div>
 </div>
 
+
 <script>
 
+/* =====================================================
+   STATIONS
+===================================================== */
+
 const stations=[
+
 {
 name:"Riyadh",
 id:"r"
 },
+
 {
 name:"Al-Majma'ah",
 id:"m"
 },
+
 {
 name:"Al-Qassim",
 id:"q"
 },
+
 {
 name:"Hail",
 id:"ha"
 },
+
 {
 name:"Al-Jouf",
 id:"j"
 },
+
 {
 name:"Al-Qurayyat",
 id:"c"
 },
+
 {
 name:"Dammam",
 id:"d"
 },
+
 {
 name:"Buqayq",
 id:"bq"
 },
+
 {
 name:"Al-Hofuf",
 id:"h"
 }
+
 ];
 
+
+/* =====================================================
+   CREATE NUMBER SELECT
+===================================================== */
 
 function fillSelect(id,max,selected=0){
 
@@ -332,18 +374,84 @@ x.appendChild(o);
 }
 
 
-function fillStations(id,selected){
+/* =====================================================
+   GET VALUE
+===================================================== */
 
-const x=document.getElementById(id);
+function v(id){
 
-stations.forEach(s=>{
+const element=document.getElementById(id);
+
+if(!element){
+return "";
+}
+
+return element.value || "";
+
+}
+
+
+/* =====================================================
+   GET NUMBER
+===================================================== */
+
+function n(id){
+
+return Number(v(id)) || 0;
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function d(id){
+
+const x=v(id);
+
+if(!x){
+return "";
+}
+
+const p=x.split("-");
+
+return p.length===3
+?`${p[2]}/${p[1]}/${p[0]}`
+:x;
+
+}
+
+
+/* =====================================================
+   DEPARTURE STATIONS
+===================================================== */
+
+const departureStations=[
+"Riyadh",
+"Al-Majma'ah",
+"Al-Qassim",
+"Hail",
+"Al-Jouf",
+"Al-Qurayyat",
+"Dammam",
+"Buqayq",
+"Al-Hofuf"
+];
+
+
+function fillDepartureStations(){
+
+const x=document.getElementById("m_from");
+
+departureStations.forEach(station=>{
 
 const o=document.createElement("option");
 
-o.value=s.name;
-o.textContent=s.name;
+o.value=station;
+o.textContent=station;
 
-if(s.name===selected){
+if(station==="Al-Majma'ah"){
 o.selected=true;
 }
 
@@ -354,34 +462,9 @@ x.appendChild(o);
 }
 
 
-function v(id){
-
-return document.getElementById(id).value||"";
-
-}
-
-
-function n(id){
-
-return Number(v(id))||0;
-
-}
-
-
-function d(id){
-
-const x=v(id);
-
-if(!x)return "";
-
-const p=x.split("-");
-
-return p.length===3
-?`${p[2]}/${p[1]}/${p[0]}`
-:x;
-
-}
-
+/* =====================================================
+   CREATE STATION FIELDS
+===================================================== */
 
 function createStationFields(){
 
@@ -435,32 +518,82 @@ Shipment
 
 container.appendChild(div);
 
-fillSelect(s.id+"_b",450);
-fillSelect(s.id+"_e",450);
-fillSelect(s.id+"_w",20);
-fillSelect(s.id+"_g",200);
-fillSelect(s.id+"_s",150);
+
+/* Business 0 - 450 */
+
+fillSelect(
+s.id+"_b",
+450,
+0
+);
+
+
+/* Economy 0 - 450 */
+
+fillSelect(
+s.id+"_e",
+450,
+0
+);
+
+
+/* Waiting 0 - 20 */
+
+fillSelect(
+s.id+"_w",
+20,
+0
+);
+
+
+/* Baggage 0 - 200 */
+
+fillSelect(
+s.id+"_g",
+200,
+0
+);
+
+
+/* Shipment 0 - 150 */
+
+fillSelect(
+s.id+"_s",
+150,
+0
+);
 
 });
 
 }
 
 
+/* =====================================================
+   SHOW / HIDE SELECTED STATIONS
+===================================================== */
+
 function updateSelectedStations(){
 
-document.querySelectorAll(".station-check").forEach(check=>{
+document.querySelectorAll(".station-check")
+.forEach(check=>{
 
 const stationId=check.dataset.id;
 
-const box=document.getElementById("station_"+stationId);
+const box=document.getElementById(
+"station_"+stationId
+);
 
-if(box){
+if(!box){
+return;
+}
 
 if(check.checked){
+
 box.classList.remove("hidden");
+
 }else{
+
 box.classList.add("hidden");
-}
 
 }
 
@@ -471,73 +604,126 @@ update();
 }
 
 
+/* =====================================================
+   CREATE REPORT
+===================================================== */
+
 function multiText(){
 
-let total=0;
-let bags=0;
-let shipments=0;
+let totalPassengers=0;
+
+let totalBusiness=0;
+
+let totalEconomy=0;
+
+let totalWaiting=0;
+
+let totalBaggage=0;
+
+let totalShipment=0;
+
 let body="";
 
-const selectedStations=
-document.querySelectorAll(".station-check:checked");
 
+const selectedStations=
+document.querySelectorAll(
+".station-check:checked"
+);
+
+
+/* Selected stations only */
 
 selectedStations.forEach(check=>{
 
 const stationName=check.value;
+
 const id=check.dataset.id;
 
-const b=n(id+"_b");
-const e=n(id+"_e");
-const w=n(id+"_w");
-const g=n(id+"_g");
-const s=n(id+"_s");
 
-const stationTotal=b+e+w;
+const business=n(id+"_b");
 
-total+=stationTotal;
-bags+=g;
-shipments+=s;
+const economy=n(id+"_e");
+
+const waiting=n(id+"_w");
+
+const baggage=n(id+"_g");
+
+const shipment=n(id+"_s");
+
+
+const stationTotal=
+business+
+economy+
+waiting;
+
+
+totalBusiness+=business;
+
+totalEconomy+=economy;
+
+totalWaiting+=waiting;
+
+totalPassengers+=stationTotal;
+
+totalBaggage+=baggage;
+
+totalShipment+=shipment;
+
+
+/* Station report */
 
 body+=`📍 ${stationName}
 
-💺 Business: ${b}
-🪑 Economy: ${e}
-Waiting: ${w}
+💺 Business: ${business}
+🪑 Economy: ${economy}
+Waiting: ${waiting}
 
-🧳 Baggage: ${g}
-📦 Shipment: ${s}
+🧳 Baggage: ${baggage}
+📦 Shipment: ${shipment}
 
-Total: ${stationTotal}
+Total Passengers: ${stationTotal}
 
 `;
 
 });
 
 
+/* No station selected */
+
 if(!body){
 
-body="No arrival stations selected.\n";
+body=
+"⚠️ No arrival stations selected.\n";
 
 }
 
 
+/* Final report */
+
 return `🇸🇦 Saudi Arabia Railways (SAR)
 
 📋 Passenger Station Report
+
 📍 Departure Station: ${v("m_from")}
 ${d("m_date")}
 
 🚆 Train: #${v("m_train")}
 🕕 Departure: ${v("m_time")}
 
-➡️ Selected Arrival Stations
+➡️ Arrival Stations
 
 ${body}
 
-👥 Total Passengers: ${total}
-🧳 Total Baggage: ${bags}
-📦 Total Shipment: ${shipments}
+━━━━━━━━━━━━━━━━━━
+
+👥 TOTAL PASSENGERS: ${totalPassengers}
+
+💺 Total Business: ${totalBusiness}
+🪑 Total Economy: ${totalEconomy}
+Waiting: ${totalWaiting}
+
+🧳 Total Baggage: ${totalBaggage}
+📦 Total Shipment: ${totalShipment}
 
 📝 Note:
 Baggage car is at the front of the train.`;
@@ -545,27 +731,40 @@ Baggage car is at the front of the train.`;
 }
 
 
+/* =====================================================
+   UPDATE REPORT
+===================================================== */
+
 function update(){
 
-document.getElementById("output").value=multiText();
+document.getElementById("output").value=
+multiText();
 
 }
 
 
+/* =====================================================
+   COPY REPORT
+===================================================== */
+
 async function copyReport(){
 
-const text=document.getElementById("output").value;
+const text=
+document.getElementById("output").value;
+
 
 try{
 
 await navigator.clipboard.writeText(text);
 
-document.getElementById("status").textContent=
+document.getElementById("status")
+.textContent=
 "✅ Report copied successfully. Open WhatsApp and paste.";
 
 }catch(e){
 
-const x=document.getElementById("output");
+const x=
+document.getElementById("output");
 
 x.removeAttribute("readonly");
 
@@ -577,7 +776,8 @@ document.execCommand("copy");
 
 x.setAttribute("readonly","readonly");
 
-document.getElementById("status").textContent=
+document.getElementById("status")
+.textContent=
 "✅ Report copied successfully. Open WhatsApp and paste.";
 
 }
@@ -585,17 +785,26 @@ document.getElementById("status").textContent=
 }
 
 
+/* =====================================================
+   INITIAL SETUP
+===================================================== */
+
+
 /* Train number 0 - 200 */
 
-fillSelect("m_train",200,39);
+fillSelect(
+"m_train",
+200,
+39
+);
 
 
 /* Departure stations */
 
-fillStations("m_from","Al-Majma'ah");
+fillDepartureStations();
 
 
-/* Create all station input fields */
+/* Create all station fields */
 
 createStationFields();
 
@@ -607,23 +816,35 @@ new Date()
 .toISOString()
 .split("T")[0];
 
-document.getElementById("m_date").value=today;
+document.getElementById("m_date")
+.value=today;
 
 
 /* Station selection */
 
-document.querySelectorAll(".station-check").forEach(check=>{
+document.querySelectorAll(
+".station-check"
+).forEach(check=>{
 
-check.addEventListener("change",updateSelectedStations);
+check.addEventListener(
+"change",
+updateSelectedStations
+);
 
 });
 
 
-/* Update report when values change */
+/* Update whenever user changes numbers */
 
-document.addEventListener("input",update);
+document.addEventListener(
+"input",
+update
+);
 
-document.addEventListener("change",update);
+document.addEventListener(
+"change",
+update
+);
 
 
 /* Initial report */
@@ -634,3 +855,4 @@ update();
 
 </body>
 </html>
+```
