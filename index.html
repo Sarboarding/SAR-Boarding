@@ -317,6 +317,48 @@ display:none
 }
 </style>
 
+
+<style>
+/* Compact baggage report */
+#baggageReportSection{margin-top:10px;padding-top:10px}
+#baggageReportSection .bag-card{padding:10px;border-radius:12px}
+#baggageReportSection h1{font-size:18px;margin-bottom:10px}
+#baggageReportSection h2{font-size:15px;margin:10px 0 6px}
+#baggageReportSection .bag-grid{gap:6px}
+#baggageReportSection input,
+#baggageReportSection select{padding:8px;font-size:14px;margin-top:3px}
+#baggageReportSection .bag-station-options{gap:5px;padding:6px}
+#baggageReportSection .bag-station-options label{padding:7px;font-size:12px}
+#baggageReportSection .bag-station-options input{width:17px;height:17px}
+#baggageReportSection .bag-destination{padding:8px;margin-top:7px}
+#baggageReportSection .bag-destination h3{font-size:14px;margin-bottom:6px}
+#baggageReportSection .bag-output{min-height:180px;padding:9px;font-size:13px}
+#baggageReportSection .bag-copy{padding:9px;font-size:14px;margin-top:7px}
+</style>
+
+
+<style>
+/* Compact passenger report */
+#passengerView .app{padding:10px}
+#passengerView .card{padding:10px;border-radius:12px;margin-bottom:10px}
+#passengerView h1{font-size:18px;margin:0 0 10px}
+#passengerView h2{font-size:14px;margin:10px 0 6px}
+#passengerView .grid{gap:6px}
+#passengerView label{font-size:12px}
+#passengerView input,
+#passengerView select{padding:8px;font-size:14px;margin-top:3px}
+#passengerView .station-select-box{padding:8px;margin-top:8px}
+#passengerView .station-select-title{font-size:13px;margin-bottom:6px}
+#passengerView .station-list{gap:5px}
+#passengerView .station-option{padding:7px;font-size:12px}
+#passengerView .station-option input{width:17px;height:17px}
+#passengerView .station{padding:8px;margin:6px 0}
+#passengerView .station-title{font-size:14px;margin-bottom:6px}
+#passengerView .output{min-height:230px;padding:9px;font-size:13px}
+#passengerView .copy{padding:9px;font-size:14px;margin-top:7px}
+#passengerView .note{font-size:11px}
+</style>
+
 </head>
 
 <body>
@@ -1150,65 +1192,104 @@ function switchReportView(view){
   }
 
   function ensureBagStationFields(){
-    const container = document.getElementById("bag_destination_fields");
-    const selected = getBagSelectedDestinations();
 
-    container.innerHTML = "";
+const container=document.getElementById("bag_destination_fields");
+const selected=getBagSelectedDestinations();
 
-    if(!selected.length){
-      container.innerHTML = '<div class="bag-note">Select one or more destination stations above.</div>';
-      return;
-    }
+container.innerHTML="";
 
-    selected.forEach(station=>{
-      const key = station.toLowerCase().replace(/[^a-z0-9]/g,"_");
-      const div = document.createElement("div");
-      div.className = "bag-destination";
-      div.innerHTML = `
-        <h3>📍 ${station} Station</h3>
-        <div class="bag-grid">
-          <label class="bag-label">
-            Economy
-            <select id="${bagFieldId(station,"economy")}"></select>
-          </label>
-          <label class="bag-label">
-            Business
-            <select id="${bagFieldId(station,"business")}"></select>
-          </label>
-          <label class="bag-label bag-full">
-            Total Bags
-            <input id="${bagFieldId(station,"total")}" type="text" value="00" readonly>
-          </label>
-          <label class="bag-label bag-full">
-            Shipment
-            <select id="${bagFieldId(station,"shipment")}"></select>
-          </label>
-        </div>
-      `;
-      container.appendChild(div);
+if(!selected.length){
+container.innerHTML='<div class="bag-note">Select destination</div>';
+return;
+}
 
-      bagFillSelect(bagFieldId(station,"economy"),450,0);
-      bagFillSelect(bagFieldId(station,"business"),450,0);
-      bagFillSelect(bagFieldId(station,"shipment"),150,0);
-    });
+selected.forEach(station=>{
 
-    updateIndependentBaggageReport();
-  }
+const div=document.createElement("div");
+div.className="bag-destination";
+
+const eId=bagFieldId(station,"economy");
+const bId=bagFieldId(station,"business");
+const tId=bagFieldId(station,"total");
+const sId=bagFieldId(station,"shipment");
+
+div.innerHTML=`
+<h3>📍 ${station}</h3>
+<div class="bag-grid">
+
+<label class="bag-label">
+Economy
+<select id="${eId}"></select>
+</label>
+
+<label class="bag-label">
+Business
+<select id="${bId}"></select>
+</label>
+
+<label class="bag-label">
+Total Bags
+<input id="${tId}" type="number" value="0" readonly>
+</label>
+
+<label class="bag-label">
+Shipment
+<select id="${sId}"></select>
+</label>
+
+</div>`;
+
+container.appendChild(div);
+
+bagFillSelect(eId,450,0);
+bagFillSelect(bId,450,0);
+bagFillSelect(sId,150,0);
+
+const economy=document.getElementById(eId);
+const business=document.getElementById(bId);
+const total=document.getElementById(tId);
+
+function calculateTotal(){
+total.value=Number(economy.value||0)+Number(business.value||0);
+updateIndependentBaggageReport();
+}
+
+economy.addEventListener("change",calculateTotal);
+business.addEventListener("change",calculateTotal);
+
+});
+
+updateIndependentBaggageReport();
+}
 
   function updateIndependentBaggageReport(){
-    const selected = getBagSelectedDestinations();
-    let body = "";
 
-    selected.forEach(station=>{
-      const economy = bagNumber(bagFieldId(station,"economy"));
-      const business = bagNumber(bagFieldId(station,"business"));
-      const total = economy + business;
-      const shipment = bagNumber(bagFieldId(station,"shipment"));
+const selected=getBagSelectedDestinations();
+let body="";
 
-      const totalEl = document.getElementById(bagFieldId(station,"total"));
-      if(totalEl) totalEl.value = String(total).padStart(2,"0");
+selected.forEach(station=>{
 
-      body += `
+const economy=Number(
+document.getElementById(bagFieldId(station,"economy"))?.value||0
+);
+
+const business=Number(
+document.getElementById(bagFieldId(station,"business"))?.value||0
+);
+
+const total=economy+business;
+
+const shipment=Number(
+document.getElementById(bagFieldId(station,"shipment"))?.value||0
+);
+
+const totalEl=document.getElementById(
+bagFieldId(station,"total")
+);
+
+if(totalEl) totalEl.value=total;
+
+body+=`
 ${station} Station
 Economy:${String(economy).padStart(2,"0")}
 Business:${String(business).padStart(2,"0")}
@@ -1216,23 +1297,22 @@ Total Bags:${String(total).padStart(2,"0")}
 Shipment:${String(shipment).padStart(2,"0")}
 
 `;
-    });
 
-    if(!body){
-      body = "⚠️ No destination stations selected.";
-    }
+});
 
-    const report =
+if(!body) body="⚠️ No destination stations selected.";
+
+const report=
 `𝐅𝐫𝐨𝐦 𝐌𝐚𝐣𝐦𝐚𝐚𝐡 𝐒𝐭𝐚𝐭𝐢𝐨𝐧
 𝐃𝐚𝐭𝐞:[${bagDate()}]
 𝐓𝐢𝐦𝐞:[${document.getElementById("bag_time").value}]
 𝐓𝐫𝐚𝐢𝐧:(${document.getElementById("bag_train").value}) [𝐁𝐚𝐠𝐠𝐚𝐠𝐞𝐬]
-𝐋𝐨𝐜𝐚𝐭𝐢𝐨𝐧:𝐁𝐚𝐜𝐤 𝐨𝐟 𝐭𝐡𝐞 𝐓𝐫𝐚𝐢𝐧
+𝐋𝐨𝐜𝐚𝐭𝐢𝐨𝐧:𝐑𝐞𝐚𝐫 𝐨𝐟 𝐭𝐡𝐞 𝐓𝐫𝐚𝐢𝐧
 
 ${body}`.trim();
 
-    document.getElementById("bag_output").value = report;
-  }
+document.getElementById("bag_output").value=report;
+}
 
   window.copyIndependentBaggageReport = async function(){
     const text = document.getElementById("bag_output").value;
