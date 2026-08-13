@@ -65,6 +65,8 @@ background:#fff
 grid-column:1/-1
 }
 
+/* Arrival station selection */
+
 .station-select-box{
 border:1px solid #ddd;
 border-radius:13px;
@@ -104,6 +106,8 @@ height:20px;
 margin:0;
 cursor:pointer
 }
+
+/* Station data */
 
 .station{
 border:1px solid #ddd;
@@ -156,199 +160,184 @@ text-align:center
 .hidden{
 display:none
 }
+</style>
 
-/* Independent report tabs */
-.report-tabs{
-max-width:650px;
-margin:14px auto 0;
-padding:0 14px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-}
-
-.report-tab{
-border:1px solid #d5d9de;
-border-radius:12px;
-padding:12px 8px;
-background:#fff;
-font-size:14px;
-font-weight:800;
-cursor:pointer;
-}
-
-.report-tab.active{
-background:#111;
-color:#fff;
-border-color:#111;
-}
-
-.report-view{
-display:block
-}
-
-.report-view.hidden-view{
-display:none
-}
-
-/* Baggage & Shipment Report */
+<style>
+/* ===== Baggage & Shipment Report — independent section ===== */
 #baggageReportSection{
-margin-top:20px;
-padding-top:20px;
-border-top:3px solid #111;
+  margin-top:20px;
+  padding-top:20px;
+  border-top:3px solid #111;
 }
-
 #baggageReportSection .bag-card{
-background:#fff;
-border-radius:18px;
-padding:16px;
-box-shadow:0 2px 12px rgba(0,0,0,.08);
-margin-bottom:14px;
+  background:#fff;
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  margin-bottom:14px;
 }
-
 #baggageReportSection .bag-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
-
-#baggageReportSection .bag-full{
-grid-column:1/-1
-}
-
+#baggageReportSection .bag-full{grid-column:1/-1}
 #baggageReportSection .bag-label{
-font-size:13px;
-font-weight:700
+  font-size:13px;
+  font-weight:700;
 }
-
 #baggageReportSection select,
 #baggageReportSection input{
-width:100%;
-margin-top:5px;
-padding:12px;
-border:1px solid #d5d9de;
-border-radius:10px;
-font-size:16px;
-background:#fff;
+  width:100%;
+  margin-top:5px;
+  padding:12px;
+  border:1px solid #d5d9de;
+  border-radius:10px;
+  font-size:16px;
+  background:#fff;
 }
-
 #baggageReportSection .bag-destination{
-margin-top:14px;
-padding:13px;
-border:1px solid #ddd;
-border-radius:13px;
-background:#fafafa;
+  margin-top:14px;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:13px;
+  background:#fafafa;
 }
-
 #baggageReportSection .bag-destination h3{
-margin:0 0 10px;
-font-size:17px;
+  margin:0 0 10px;
+  font-size:17px;
 }
-
 #baggageReportSection .bag-output{
-width:100%;
-min-height:280px;
-padding:13px;
-border:1px solid #ccc;
-border-radius:12px;
-font-size:15px;
-line-height:1.55;
-direction:ltr;
-text-align:left;
-white-space:pre-wrap;
-background:#fafafa;
+  width:100%;
+  min-height:280px;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:12px;
+  font-size:15px;
+  line-height:1.55;
+  direction:ltr;
+  text-align:left;
+  white-space:pre-wrap;
+  background:#fafafa;
 }
-
 #baggageReportSection .bag-copy{
-width:100%;
-border:0;
-border-radius:12px;
-padding:12px;
-font-size:16px;
-font-weight:700;
-background:#128c7e;
-color:#fff;
-margin-top:10px;
-cursor:pointer;
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:12px;
+  font-size:16px;
+  font-weight:700;
+  background:#128c7e;
+  color:#fff;
+  margin-top:10px;
+  cursor:pointer;
 }
-
 #baggageReportSection .bag-note{
-font-size:12px;
-color:#666;
-margin-top:8px;
-text-align:center;
-}
-
-#baggageReportSection .bag-station-options{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin-top:8px;
-padding:10px;
-border:1px solid #ddd;
-border-radius:12px;
-background:#fafafa;
-}
-
-#baggageReportSection .bag-station-options label{
-display:flex;
-align-items:center;
-gap:8px;
-padding:10px;
-border:1px solid #ddd;
-border-radius:10px;
-background:#fff;
-font-size:14px;
-font-weight:700;
-cursor:pointer;
-}
-
-#baggageReportSection .bag-station-options input{
-width:20px;
-height:20px;
-margin:0;
-}
-
-/* SAR logo */
-.sar-brand{
-position:fixed;
-top:10px;
-left:12px;
-z-index:9999;
-font-size:18px;
-font-weight:900;
-letter-spacing:1px;
-background:#111;
-color:#fff;
-padding:6px 10px;
-border-radius:9px;
+  font-size:12px;
+  color:#666;
+  margin-top:8px;
+  text-align:center;
 }
 </style>
+
+
+<style>
+/* Independent report tabs */
+.report-tabs{
+  max-width:650px;
+  margin:14px auto 0;
+  padding:0 14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.report-tab{
+  border:1px solid #d5d9de;
+  border-radius:12px;
+  padding:12px 8px;
+  background:#fff;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+.report-tab.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.report-view{display:block}
+.report-view.hidden-view{display:none}
+</style>
+
+
+<style>
+.sar-brand{
+  position:fixed;
+  top:10px;
+  left:12px;
+  z-index:9999;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:1px;
+  background:#111;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:9px;
+}
+</style>
+
+
+<style>
+#baggageReportSection .bag-station-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:8px;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+}
+#baggageReportSection .bag-station-options label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  background:#fff;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+#baggageReportSection .bag-station-options input{
+  width:20px;
+  height:20px;
+  margin:0;
+}
+</style>
+
 </head>
 
 <body>
-
 <div class="sar-brand">SAR</div>
 
 <div class="report-tabs">
-<button id="passengerTab" class="report-tab active" type="button"
-onclick="switchReportView('passenger')">
-👤 Passenger Report
-</button>
-
-<button id="baggageTab" class="report-tab" type="button"
-onclick="switchReportView('baggage')">
-🧳 Baggage Report
-</button>
+  <button id="passengerTab" class="report-tab active" type="button"
+          onclick="switchReportView('passenger')">👤 Passenger Report</button>
+  <button id="baggageTab" class="report-tab" type="button"
+          onclick="switchReportView('baggage')">🧳 Baggage Report</button>
 </div>
 
-<div id="passengerView" class="report-view">
 
+<div id="passengerView" class="report-view">
 <div class="app">
 
 <div class="card">
 
 <h1>🇸🇦 SAR — Passenger Station Report</h1>
+
+<!-- Main Report Information -->
 
 <div class="grid">
 
@@ -368,56 +357,89 @@ Departure Station
 </label>
 
 <label>
-Time
-<input id="m_time" type="time">
+Departure Time
+<input id="m_time" type="time" value="18:00">
 </label>
 
 </div>
+
+
+<!-- Arrival Stations -->
 
 <h2>Arrival Stations</h2>
 
 <div class="station-select-box">
 
 <div class="station-select-title">
-Select the stations you want
+Select the stations you want to include in the report
 </div>
 
 <div class="station-list">
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Riyadh" data-id="r">
+<input type="checkbox" class="station-check"
+value="Riyadh" data-id="r">
 Riyadh
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Majma'ah" data-id="m">
+<input type="checkbox" class="station-check"
+value="Al-Majma'ah" data-id="m">
 Al-Majma'ah
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Qassim" data-id="q">
+<input type="checkbox" class="station-check"
+value="Al-Qassim" data-id="q">
 Al-Qassim
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Hail" data-id="ha">
+<input type="checkbox" class="station-check"
+value="Hail" data-id="ha">
 Hail
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Jouf" data-id="j">
+<input type="checkbox" class="station-check"
+value="Al-Jouf" data-id="j">
 Al-Jouf
 </label>
 
 <label class="station-option">
-<input type="checkbox" class="station-check" value="Al-Qurayyat" data-id="c">
+<input type="checkbox" class="station-check"
+value="Al-Qurayyat" data-id="c">
 Al-Qurayyat
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check"
+value="Dammam" data-id="d">
+Dammam
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check"
+value="Buqayq" data-id="bq">
+Buqayq
+</label>
+
+<label class="station-option">
+<input type="checkbox" class="station-check"
+value="Al-Hofuf" data-id="h">
+Al-Hofuf
 </label>
 
 </div>
 </div>
 
-<div id="stations"></div>
+
+<!-- Station Input Fields -->
+
+<div id="stationFields"></div>
+
+
+<!-- WhatsApp Report -->
 
 <h2>📱 WhatsApp Report</h2>
 
@@ -432,159 +454,85 @@ Tap "Copy Report" and paste directly into WhatsApp.
 </div>
 
 </div>
-
-</div>
-</div>
-
-
-<!-- =====================================================
-     INDEPENDENT BAGGAGE & SHIPMENT REPORT
-===================================================== -->
-
-<div id="baggageView" class="report-view hidden-view">
-
-<section id="baggageReportSection">
-
-<div class="bag-card">
-
-<h1>🧳 SAR — Baggage & Shipment Report</h1>
-
-<div class="bag-grid">
-
-<label class="bag-label">
-Date
-<input id="bag_date" type="date">
-</label>
-
-<label class="bag-label">
-Time
-<input id="bag_time" type="time" value="18:00">
-</label>
-
-<label class="bag-label">
-Train Number
-<select id="bag_train"></select>
-</label>
-
-<div class="bag-label bag-full">
-
-Destination Stations — Select the stations you want
-
-<div class="bag-station-options">
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Riyadh">
-Riyadh
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Al-Majma'ah">
-Al-Majma'ah
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Al-Qassim">
-Al-Qassim
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Hail">
-Hail
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Al-Jouf">
-Al-Jouf
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Al-Qurayyat">
-Al-Qurayyat
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Dammam">
-Dammam
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Buqayq">
-Buqayq
-</label>
-
-<label>
-<input type="checkbox" class="bag-destination-check" value="Al-Hofuf">
-Al-Hofuf
-</label>
-
-</div>
-</div>
-
-</div>
-
-<div id="bag_destination_fields" class="bag-destination">
-
-<div class="bag-note">
-Select one or more destination stations above.
-</div>
-
-</div>
-
-<h2>📋 Report</h2>
-
-<textarea id="bag_output" class="bag-output" readonly></textarea>
-
-<button class="bag-copy" type="button"
-onclick="copyIndependentBaggageReport()">
-📋 Copy Baggage Report
-</button>
-
-<div id="bag_status" class="bag-note">
-The baggage report is completely independent from the passenger report.
-</div>
-
-</div>
-
-</section>
-
 </div>
 
 
 <script>
 
-function switchReportView(view){
+/* =====================================================
+   STATIONS
+===================================================== */
 
-const passenger =
-document.getElementById("passengerView");
+const stations=[
 
-const baggage =
-document.getElementById("baggageView");
+{
+name:"Riyadh",
+id:"r"
+},
 
-const passengerTab =
-document.getElementById("passengerTab");
+{
+name:"Al-Majma'ah",
+id:"m"
+},
 
-const baggageTab =
-document.getElementById("baggageTab");
+{
+name:"Al-Qassim",
+id:"q"
+},
 
-if(view === "baggage"){
+{
+name:"Hail",
+id:"ha"
+},
 
-passenger.classList.add("hidden-view");
+{
+name:"Al-Jouf",
+id:"j"
+},
 
-baggage.classList.remove("hidden-view");
+{
+name:"Al-Qurayyat",
+id:"c"
+},
 
-passengerTab.classList.remove("active");
+{
+name:"Dammam",
+id:"d"
+},
 
-baggageTab.classList.add("active");
+{
+name:"Buqayq",
+id:"bq"
+},
 
-}else{
+{
+name:"Al-Hofuf",
+id:"h"
+}
 
-baggage.classList.add("hidden-view");
+];
 
-passenger.classList.remove("hidden-view");
 
-baggageTab.classList.remove("active");
+/* =====================================================
+   CREATE NUMBER SELECT
+===================================================== */
 
-passengerTab.classList.add("active");
+function fillSelect(id,max,selected=0){
+
+const x=document.getElementById(id);
+
+for(let i=0;i<=max;i++){
+
+const o=document.createElement("option");
+
+o.value=i;
+o.textContent=i;
+
+if(i===selected){
+o.selected=true;
+}
+
+x.appendChild(o);
 
 }
 
@@ -592,117 +540,100 @@ passengerTab.classList.add("active");
 
 
 /* =====================================================
-   PASSENGER REPORT
+   GET VALUE
 ===================================================== */
 
-const stations = [
+function v(id){
 
-{name:"Riyadh",id:"r"},
-{name:"Al-Majma'ah",id:"m"},
-{name:"Al-Qassim",id:"q"},
-{name:"Hail",id:"ha"},
-{name:"Al-Jouf",id:"j"},
-{name:"Al-Qurayyat",id:"c"}
+const element=document.getElementById(id);
 
-];
-
-
-function fillSelect(id,max,selected=0){
-
-const el=document.getElementById(id);
-
-if(!el)return;
-
-el.innerHTML="";
-
-for(let i=0;i<=max;i++){
-
-const option=document.createElement("option");
-
-option.value=i;
-
-option.textContent=String(i).padStart(2,"0");
-
-if(i===selected)option.selected=true;
-
-el.appendChild(option);
-
+if(!element){
+return "";
 }
+
+return element.value || "";
 
 }
 
 
-function fillTrain(id){
+/* =====================================================
+   GET NUMBER
+===================================================== */
 
-fillSelect(id,200,0);
+function n(id){
+
+return Number(v(id)) || 0;
 
 }
 
 
-function fillDepartureStations(){
+/* =====================================================
+   DATE FORMAT
+===================================================== */
 
-const el=document.getElementById("m_from");
+function d(id){
 
-if(!el)return;
+const x=v(id);
 
-el.innerHTML="";
+if(!x){
+return "";
+}
 
-const list=[
+const p=x.split("-");
+
+return p.length===3
+?`${p[2]}/${p[1]}/${p[0]}`
+:x;
+
+}
+
+
+/* =====================================================
+   DEPARTURE STATIONS
+===================================================== */
+
+const departureStations=[
 "Riyadh",
 "Al-Majma'ah",
 "Al-Qassim",
 "Hail",
 "Al-Jouf",
-"Al-Qurayyat"
+"Al-Qurayyat",
+"Dammam",
+"Buqayq",
+"Al-Hofuf"
 ];
 
-list.forEach(x=>{
 
-const option=document.createElement("option");
+function fillDepartureStations(){
 
-option.value=x;
+const x=document.getElementById("m_from");
 
-option.textContent=x;
+departureStations.forEach(station=>{
 
-el.appendChild(option);
+const o=document.createElement("option");
+
+o.value=station;
+o.textContent=station;
+
+if(station==="Al-Majma'ah"){
+o.selected=true;
+}
+
+x.appendChild(o);
 
 });
 
 }
 
 
-function n(id){
+/* =====================================================
+   CREATE STATION FIELDS
+===================================================== */
 
-const el=document.getElementById(id);
+function createStationFields(){
 
-return Number(el?.value||0);
-
-}
-
-
-function v(id){
-
-return document.getElementById(id)?.value||"";
-
-}
-
-
-function d(id){
-
-const value=v(id);
-
-if(!value)return "";
-
-const parts=value.split("-");
-
-return `${parts[2]}/${parts[1]}/${parts[0]}`;
-
-}
-
-
-function createStations(){
-
-const container=document.getElementById("stations");
+const container=document.getElementById("stationFields");
 
 container.innerHTML="";
 
@@ -717,19 +648,19 @@ div.id="station_"+s.id;
 div.innerHTML=`
 
 <div class="station-title">
-📍 ${s.name} Station
+📍 ${s.name}
 </div>
 
 <div class="grid">
 
 <label>
-Economy
-<select id="${s.id}_e"></select>
+Business
+<select id="${s.id}_b"></select>
 </label>
 
 <label>
-Business
-<select id="${s.id}_b"></select>
+Economy
+<select id="${s.id}_e"></select>
 </label>
 
 <label>
@@ -742,33 +673,84 @@ Baggage
 <select id="${s.id}_g"></select>
 </label>
 
+<label>
+Shipment
+<select id="${s.id}_s"></select>
+</label>
+
 </div>
 `;
 
 container.appendChild(div);
 
-fillSelect(s.id+"_e",450,0);
 
-fillSelect(s.id+"_b",450,0);
+/* Business 0 - 450 */
 
-fillSelect(s.id+"_w",20,0);
+fillSelect(
+s.id+"_b",
+450,
+0
+);
 
-fillSelect(s.id+"_g",200,0);
+
+/* Economy 0 - 450 */
+
+fillSelect(
+s.id+"_e",
+450,
+0
+);
+
+
+/* Waiting 0 - 20 */
+
+fillSelect(
+s.id+"_w",
+20,
+0
+);
+
+
+/* Baggage 0 - 200 */
+
+fillSelect(
+s.id+"_g",
+200,
+0
+);
+
+
+/* Shipment 0 - 150 */
+
+fillSelect(
+s.id+"_s",
+150,
+0
+);
 
 });
 
 }
 
 
-function updateStations(){
+/* =====================================================
+   SHOW / HIDE SELECTED STATIONS
+===================================================== */
+
+function updateSelectedStations(){
 
 document.querySelectorAll(".station-check")
 .forEach(check=>{
 
-const box=
-document.getElementById("station_"+check.dataset.id);
+const stationId=check.dataset.id;
 
-if(!box)return;
+const box=document.getElementById(
+"station_"+stationId
+);
+
+if(!box){
+return;
+}
 
 if(check.checked){
 
@@ -787,51 +769,86 @@ update();
 }
 
 
-function update(){
+/* =====================================================
+   CREATE REPORT
+===================================================== */
+
+function multiText(){
 
 let body="";
 
-document.querySelectorAll(".station-check:checked")
-.forEach(check=>{
+
+const selectedStations=
+document.querySelectorAll(
+".station-check:checked"
+);
+
+
+/* Selected stations only */
+
+selectedStations.forEach(check=>{
+
+const stationName=check.value;
 
 const id=check.dataset.id;
 
-const station=check.value;
-
-const economy=n(id+"_e");
 
 const business=n(id+"_b");
+
+const economy=n(id+"_e");
 
 const waiting=n(id+"_w");
 
 const baggage=n(id+"_g");
 
-const total=economy+business+waiting;
+const shipment=n(id+"_s");
 
-body += `
 
-${station} Station
+const stationTotal=
+business+
+economy+
+waiting;
 
-Economy:${String(economy).padStart(2,"0")}
 
-Business:${String(business).padStart(2,"0")}
+/* Station report */
 
-Waiting:${String(waiting).padStart(2,"0")}
+body+=`📍 ${stationName}
 
-Total:${String(total).padStart(2,"0")}
+💺 Business: ${business}
+🎟️ Economy: ${economy}
+Waiting: ${waiting}
 
-Baggage:${String(baggage).padStart(2,"0")}
+🧳 Baggage: ${baggage}
+📦 Shipment: ${shipment}
+
+Total Passengers: ${stationTotal}
 
 `;
 
 });
 
 
-const report=
-`𝐅𝐫𝐨𝐦 ${v("m_from")} 𝐒𝐭𝐚𝐭𝐢𝐨𝐧
-𝐃𝐚𝐭𝐞:[${d("m_date")}]
-𝐓𝐢𝐦𝐞:[${v("m_time")}]
-𝐓𝐫𝐚𝐢𝐧:(${v("m_train")})
+/* No station selected */
+
+if(!body){
+
+body=
+"⚠️ No arrival stations selected.\n";
+
+}
+
+
+/* Final report */
+
+return `🇸🇦 Saudi Arabia Railways (SAR)
+
+📋 Passenger Station Report
+
+📍 Departure Station: ${v("m_from")}
+${d("m_date")}
+
+🚆 Train: #${v("m_train")}
+🕕 Departure: ${v("m_time")}
 
 ➡️ Arrival Stations
 
@@ -840,27 +857,43 @@ ${body}
 📝 Note:
 Baggage car is at the rear of the train.`;
 
+}
+
+
+/* =====================================================
+   UPDATE REPORT
+===================================================== */
+
+function update(){
+
 document.getElementById("output").value=
-report.trim();
+multiText();
 
 }
 
+
+/* =====================================================
+   COPY REPORT
+===================================================== */
 
 async function copyReport(){
 
 const text=
 document.getElementById("output").value;
 
+
 try{
 
 await navigator.clipboard.writeText(text);
 
-document.getElementById("status").textContent=
-"✅ Report copied successfully.";
+document.getElementById("status")
+.textContent=
+"✅ Report copied successfully. Open WhatsApp and paste.";
 
 }catch(e){
 
-const x=document.getElementById("output");
+const x=
+document.getElementById("output");
 
 x.removeAttribute("readonly");
 
@@ -872,8 +905,9 @@ document.execCommand("copy");
 
 x.setAttribute("readonly","readonly");
 
-document.getElementById("status").textContent=
-"✅ Report copied successfully.";
+document.getElementById("status")
+.textContent=
+"✅ Report copied successfully. Open WhatsApp and paste.";
 
 }
 
@@ -884,297 +918,311 @@ document.getElementById("status").textContent=
    INITIAL SETUP
 ===================================================== */
 
-fillTrain("m_train");
+
+/* Train number 0 - 200 */
+
+fillSelect(
+"m_train",
+200,
+39
+);
+
+
+/* Departure stations */
 
 fillDepartureStations();
 
-createStations();
 
-const today=new Date();
+/* Create all station fields */
 
-document.getElementById("m_date").value=
-today.toISOString().split("T")[0];
+createStationFields();
 
-document.getElementById("m_time").value=
-today.toTimeString().slice(0,5);
 
-document.querySelectorAll(".station-check")
-.forEach(check=>{
+/* Today's date */
 
-check.addEventListener("change",updateStations);
+const today=
+new Date()
+.toISOString()
+.split("T")[0];
+
+document.getElementById("m_date")
+.value=today;
+
+
+/* Station selection */
+
+document.querySelectorAll(
+".station-check"
+).forEach(check=>{
+
+check.addEventListener(
+"change",
+updateSelectedStations
+);
 
 });
 
-document.addEventListener("change",update);
 
-document.addEventListener("input",update);
+/* Update whenever user changes numbers */
+
+document.addEventListener(
+"input",
+update
+);
+
+document.addEventListener(
+"change",
+update
+);
+
+
+/* Initial report */
 
 update();
 
+</script>
 
+
+</div>
+</div>
+
+
+<script>
+function switchReportView(view){
+  const passenger = document.getElementById("passengerView");
+  const baggage = document.getElementById("baggageView");
+  const passengerTab = document.getElementById("passengerTab");
+  const baggageTab = document.getElementById("baggageTab");
+
+  if(view === "baggage"){
+    passenger.classList.add("hidden-view");
+    baggage.classList.remove("hidden-view");
+    passengerTab.classList.remove("active");
+    baggageTab.classList.add("active");
+  }else{
+    baggage.classList.add("hidden-view");
+    passenger.classList.remove("hidden-view");
+    baggageTab.classList.remove("active");
+    passengerTab.classList.add("active");
+  }
+}
+</script>
+
+<!-- =====================================================
+     INDEPENDENT BAGGAGE & SHIPMENT REPORT
+     Passenger Report code above is NOT modified.
+===================================================== -->
+<section id="baggageView" class="report-view hidden-view">
+<section id="baggageReportSection">
+  <div class="bag-card">
+    <h1>🧳 SAR — Baggage & Shipment Report</h1>
+
+    <div class="bag-grid">
+      <label class="bag-label">
+        Date
+        <input id="bag_date" type="date">
+      </label>
+
+      <label class="bag-label">
+        Time
+        <input id="bag_time" type="time" value="18:00">
+      </label>
+
+      <label class="bag-label">
+        Train Number
+        <select id="bag_train"></select>
+      </label>
+
+      <div class="bag-label bag-full">
+        Destination Stations — Select the stations you want
+        <div class="bag-station-options">
+          <label><input type="checkbox" class="bag-destination-check" value="Riyadh"> Riyadh</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Al-Majma'ah"> Al-Majma'ah</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Al-Qassim"> Al-Qassim</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Hail"> Hail</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Al-Jouf"> Al-Jouf</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Al-Qurayyat"> Al-Qurayyat</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Dammam"> Dammam</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Buqayq"> Buqayq</label>
+          <label><input type="checkbox" class="bag-destination-check" value="Al-Hofuf"> Al-Hofuf</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="bag_destination_fields" class="bag-destination">
+      <h3 id="bag_destination_title">Destination</h3>
+
+      <div class="bag-grid">
+        <label class="bag-label">
+          Economy
+          <select id="bag_economy"></select>
+        </label>
+
+        <label class="bag-label">
+          Business
+          <select id="bag_business"></select>
+        </label>
+
+        <label class="bag-label bag-full">
+          Total Bags
+          <input id="bag_total" type="text" value="00" readonly>
+        </label>
+
+        <label class="bag-label bag-full">
+          Shipment
+          <select id="bag_shipment"></select>
+        </label>
+      </div>
+    </div>
+
+    <h2>📋 Report</h2>
+    <textarea id="bag_output" class="bag-output" readonly></textarea>
+
+    <button class="bag-copy" type="button" onclick="copyIndependentBaggageReport()">
+      📋 Copy Baggage Report
+    </button>
+
+    <div id="bag_status" class="bag-note">
+      The baggage report is completely independent from the passenger report.
+    </div>
+  </div>
+</section>
+
+
+<script>
 /* =====================================================
    INDEPENDENT BAGGAGE & SHIPMENT REPORT
+   Uses unique "bag_" IDs/functions so it does not
+   interfere with the passenger report.
 ===================================================== */
 
 (function(){
 
-const BAG_DESTINATIONS=[
+  const BAG_DESTINATIONS = [
+    "Riyadh",
+    "Al-Majma'ah",
+    "Al-Qassim",
+    "Hail",
+    "Al-Jouf",
+    "Al-Qurayyat",
+    "Dammam",
+    "Buqayq",
+    "Al-Hofuf"
+  ];
+
+  function bagFillSelect(id, max, selected){
+    const el = document.getElementById(id);
+    if(!el) return;
+
+    el.innerHTML = "";
+
+    for(let i=0; i<=max; i++){
+      const option = document.createElement("option");
+      option.value = i;
+      option.textContent = String(i).padStart(2,"0");
+      if(i === selected) option.selected = true;
+      el.appendChild(option);
+    }
+  }
+
+  function bagNumber(id){
+    return Number(document.getElementById(id).value || 0);
+  }
+
+  function bagDate(){
+    const value = document.getElementById("bag_date").value;
+    if(!value) return "";
+
+    const parts = value.split("-");
+    return parts.length === 3
+      ? `${parts[2]}/${parts[1]}/${parts[0]}`
+      : value;
+  }
+
+  function getBagSelectedDestinations(){
+    return Array.from(
+      document.querySelectorAll(".bag-destination-check:checked")
+    ).map(x => x.value);
+  }
+
+  function bagFieldId(station, field){
+    return "bag_" + station.toLowerCase().replace(/[^a-z0-9]/g,"_") + "_" + field;
+  }
+
+  function ensureBagStationFields(){
+    const container = document.getElementById("bag_destination_fields");
+    const selected = getBagSelectedDestinations();
+
+    container.innerHTML = "";
+
+    if(!selected.length){
+      container.innerHTML = '<div class="bag-note">Select one or more destination stations above.</div>';
+      return;
+    }
+
+    selected.forEach(station=>{
+      const key = station.toLowerCase().replace(/[^a-z0-9]/g,"_");
+      const div = document.createElement("div");
+      div.className = "bag-destination";
+      div.innerHTML = `
+        <h3>📍 ${station} Station</h3>
+        <div class="bag-grid">
+          <label class="bag-label">
+            Economy
+            <select id="${bagFieldId(station,"economy")}"></select>
+          </label>
+          <label class="bag-label">
+            Business
+            <select id="${bagFieldId(station,"business")}"></select>
+          </label>
+          <label class="bag-label bag-full">
+            Total Bags
+            <input id="${bagFieldId(station,"total")}" type="text" value="00" readonly>
+          </label>
+          <label class="bag-label bag-full">
+            Shipment
+            <select id="${bagFieldId(station,"shipment")}"></select>
+          </label>
+        </div>
+      `;
+      container.appendChild(div);
+
+      bagFillSelect(bagFieldId(station,"economy"),450,0);
+      bagFillSelect(bagFieldId(station,"business"),450,0);
+      bagFillSelect(bagFieldId(station,"shipment"),150,0);
+    });
+
+    updateIndependentBaggageReport();
+  }
+
+  function updateIndependentBaggageReport(){
+    const selected = getBagSelectedDestinations();
+    let body = "";
+
+    selected.forEach(station=>{
+      const economy = bagNumber(bagFieldId(station,"economy"));
+      const business = bagNumber(bagFieldId(station,"business"));
+      const total = economy + business;
+      const shipment = bagNumber(bagFieldId(station,"shipment"));
 
-"Riyadh",
-"Al-Majma'ah",
-"Al-Qassim",
-"Hail",
-"Al-Jouf",
-"Al-Qurayyat",
-"Dammam",
-"Buqayq",
-"Al-Hofuf"
+      const totalEl = document.getElementById(bagFieldId(station,"total"));
+      if(totalEl) totalEl.value = String(total).padStart(2,"0");
 
-];
-
-
-function bagFillSelect(id,max,selected){
-
-const el=document.getElementById(id);
-
-if(!el)return;
-
-el.innerHTML="";
-
-for(let i=0;i<=max;i++){
-
-const option=document.createElement("option");
-
-option.value=i;
-
-option.textContent=
-String(i).padStart(2,"0");
-
-if(i===selected)
-option.selected=true;
-
-el.appendChild(option);
-
-}
-
-}
-
-
-function bagNumber(id){
-
-return Number(
-document.getElementById(id)?.value||0
-);
-
-}
-
-
-function bagDate(){
-
-const value=
-document.getElementById("bag_date").value;
-
-if(!value)return "";
-
-const parts=value.split("-");
-
-return `${parts[2]}/${parts[1]}/${parts[0]}`;
-
-}
-
-
-function getBagSelectedDestinations(){
-
-return Array.from(
-document.querySelectorAll(
-".bag-destination-check:checked"
-)
-).map(x=>x.value);
-
-}
-
-
-function bagFieldId(station,field){
-
-return "bag_"+
-station
-.toLowerCase()
-.replace(/[^a-z0-9]/g,"_")
-+"_"+field;
-
-}
-
-
-function ensureBagStationFields(){
-
-const container=
-document.getElementById(
-"bag_destination_fields"
-);
-
-const selected=
-getBagSelectedDestinations();
-
-container.innerHTML="";
-
-if(!selected.length){
-
-container.innerHTML=
-'<div class="bag-note">Select one or more destination stations above.</div>';
-
-return;
-
-}
-
-
-selected.forEach(station=>{
-
-const div=
-document.createElement("div");
-
-div.className="bag-destination";
-
-div.innerHTML=`
-
-<h3>📍 ${station} Station</h3>
-
-<div class="bag-grid">
-
-<label class="bag-label">
-
-Economy
-
-<select id="${bagFieldId(station,"economy")}"></select>
-
-</label>
-
-<label class="bag-label">
-
-Business
-
-<select id="${bagFieldId(station,"business")}"></select>
-
-</label>
-
-<label class="bag-label bag-full">
-
-Total Bags
-
-<input
-id="${bagFieldId(station,"total")}"
-type="text"
-value="00"
-readonly
->
-
-</label>
-
-<label class="bag-label bag-full">
-
-Shipment
-
-<select id="${bagFieldId(station,"shipment")}"></select>
-
-</label>
-
-</div>
-
-`;
-
-container.appendChild(div);
-
-bagFillSelect(
-bagFieldId(station,"economy"),
-450,
-0
-);
-
-bagFillSelect(
-bagFieldId(station,"business"),
-450,
-0
-);
-
-bagFillSelect(
-bagFieldId(station,"shipment"),
-150,
-0
-);
-
-});
-
-updateIndependentBaggageReport();
-
-}
-
-
-function updateIndependentBaggageReport(){
-
-const selected=
-getBagSelectedDestinations();
-
-let body="";
-
-
-selected.forEach(station=>{
-
-const economy=
-bagNumber(
-bagFieldId(station,"economy")
-);
-
-const business=
-bagNumber(
-bagFieldId(station,"business")
-);
-
-const total=
-economy+business;
-
-const shipment=
-bagNumber(
-bagFieldId(station,"shipment")
-);
-
-const totalEl=
-document.getElementById(
-bagFieldId(station,"total")
-);
-
-if(totalEl){
-
-totalEl.value=
-String(total).padStart(2,"0");
-
-}
-
-
-body += `
-
+      body += `
 ${station} Station
-
 Economy:${String(economy).padStart(2,"0")}
-
 Business:${String(business).padStart(2,"0")}
-
 Total Bags:${String(total).padStart(2,"0")}
-
 Shipment:${String(shipment).padStart(2,"0")}
 
 `;
+    });
 
-});
+    if(!body){
+      body = "⚠️ No destination stations selected.";
+    }
 
-
-if(!body){
-
-body=
-"⚠️ No destination stations selected.";
-
-}
-
-
-const report=
+    const report =
 `𝐅𝐫𝐨𝐦 𝐌𝐚𝐣𝐦𝐚𝐚𝐡 𝐒𝐭𝐚𝐭𝐢𝐨𝐧
 𝐃𝐚𝐭𝐞:[${bagDate()}]
 𝐓𝐢𝐦𝐞:[${document.getElementById("bag_time").value}]
@@ -1183,125 +1231,69 @@ const report=
 
 ${body}`.trim();
 
+    document.getElementById("bag_output").value = report;
+  }
 
-document.getElementById(
-"bag_output"
-).value=report;
+  window.copyIndependentBaggageReport = async function(){
+    const text = document.getElementById("bag_output").value;
 
-}
+    try{
+      await navigator.clipboard.writeText(text);
+      document.getElementById("bag_status").textContent =
+        "✅ Baggage report copied successfully.";
+    }catch(e){
+      const output = document.getElementById("bag_output");
+      output.removeAttribute("readonly");
+      output.focus();
+      output.select();
+      document.execCommand("copy");
+      output.setAttribute("readonly","readonly");
 
+      document.getElementById("bag_status").textContent =
+        "✅ Baggage report copied successfully.";
+    }
+  };
 
-window.copyIndependentBaggageReport=
-async function(){
+  document.addEventListener("DOMContentLoaded", function(){
 
-const text=
-document.getElementById(
-"bag_output"
-).value;
+    bagFillSelect("bag_train", 200, 39);
+    bagFillSelect("bag_economy", 450, 0);
+    bagFillSelect("bag_business", 450, 0);
+    bagFillSelect("bag_shipment", 150, 0);
 
-try{
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth()+1).padStart(2,"0");
+    const dd = String(now.getDate()).padStart(2,"0");
 
-await navigator.clipboard.writeText(text);
+    document.getElementById("bag_date").value =
+      `${yyyy}-${mm}-${dd}`;
 
-document.getElementById(
-"bag_status"
-).textContent=
-"✅ Baggage report copied successfully.";
+    [
+      "bag_date",
+      "bag_time",
+      "bag_train",
+      "bag_economy",
+      "bag_business",
+      "bag_shipment"
+    ].forEach(function(id){
+      document.getElementById(id).addEventListener(
+        "change",
+        updateIndependentBaggageReport
+      );
+      document.getElementById(id).addEventListener(
+        "input",
+        updateIndependentBaggageReport
+      );
+    });
 
-}catch(e){
+    document.querySelectorAll(".bag-destination-check").forEach(function(check){
+      check.addEventListener("change", ensureBagStationFields);
+    });
 
-const output=
-document.getElementById("bag_output");
-
-output.removeAttribute("readonly");
-
-output.focus();
-
-output.select();
-
-document.execCommand("copy");
-
-output.setAttribute(
-"readonly",
-"readonly"
-);
-
-document.getElementById(
-"bag_status"
-).textContent=
-"✅ Baggage report copied successfully.";
-
-}
-
-};
-
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-bagFillSelect(
-"bag_train",
-200,
-39
-);
-
-const now=new Date();
-
-const yyyy=now.getFullYear();
-
-const mm=
-String(now.getMonth()+1)
-.padStart(2,"0");
-
-const dd=
-String(now.getDate())
-.padStart(2,"0");
-
-document.getElementById(
-"bag_date"
-).value=
-`${yyyy}-${mm}-${dd}`;
-
-
-[
-"bag_date",
-"bag_time",
-"bag_train"
-].forEach(function(id){
-
-document.getElementById(id)
-.addEventListener(
-"change",
-updateIndependentBaggageReport
-);
-
-document.getElementById(id)
-.addEventListener(
-"input",
-updateIndependentBaggageReport
-);
-
-});
-
-
-document.querySelectorAll(
-".bag-destination-check"
-).forEach(function(check){
-
-check.addEventListener(
-"change",
-ensureBagStationFields
-);
-
-});
-
-
-ensureBagStationFields();
-
-updateIndependentBaggageReport();
-
-});
+    ensureBagStationFields();
+    updateIndependentBaggageReport();
+  });
 
 })();
 </script>
